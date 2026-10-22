@@ -439,6 +439,11 @@ lblln.Left = lblfn.Left
 
 lblfn.Visible = False
 lblln.Visible = False
+
+'txtcode.Text = "1999"
+'txtpass.Text = "472348"
+
+
 End Sub
 
 Private Sub txtpass_GotFocus()

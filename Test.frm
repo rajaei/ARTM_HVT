@@ -442,7 +442,9 @@ Begin VB.Form frmtest
          EndProperty
          ForeColor       =   &H000000FF&
          Height          =   450
+         ItemData        =   "Test.frx":0000
          Left            =   120
+         List            =   "Test.frx":0002
          Style           =   2  'Dropdown List
          TabIndex        =   3
          Top             =   4080
@@ -532,7 +534,9 @@ Begin VB.Form frmtest
             Strikethrough   =   0   'False
          EndProperty
          Height          =   360
+         ItemData        =   "Test.frx":0004
          Left            =   1200
+         List            =   "Test.frx":0006
          Style           =   2  'Dropdown List
          TabIndex        =   9
          Top             =   360
@@ -1445,7 +1449,7 @@ Begin VB.Form frmtest
    End
    Begin BDaqOcxLibCtl.BufferedAiCtrl VIBuffer 
       Left            =   14520
-      OleObjectBlob   =   "Test.frx":0000
+      OleObjectBlob   =   "Test.frx":0008
       Top             =   2775
    End
    Begin VB.Label lblarrtype 
@@ -1639,7 +1643,7 @@ Dim timstr
 Dim dtime
 Dim maxv, maxc, maxp As Double
 Dim gaincrt(0 To 14) As Double
-Dim gainvlt(0 To 8) As Double
+Dim gainvlt(0 To 18) As Double ' m.r 8
 Dim gainpd(0 To 2) As Double
 Dim ppeakv(1 To 3) As Double
 Dim npeakv(1 To 3) As Double
@@ -2226,7 +2230,60 @@ Case 2 ' 100 kv
         vltgain = gainvlt(8)
         
     End If
-
+Case 3 ' 132 kv m.r
+         
+    If ppk * gainvlt(9) <= 30 * 1.41 Then '  gain6 (30)  gain7(60)  gain8(100)
+        vltgain = gainvlt(9)
+        
+     ElseIf (ppk * gainvlt(9) > 30 * 1.41) And (ppk * gainvlt(10) <= 60 * 1.41) Then
+        m = (gainvlt(10) - gainvlt(9)) / (60 * 1.4142 / gainvlt(10) - 30 * 1.4142 / gainvlt(9))
+        vltgain = gainvlt(9) + (m * (ppk - 30 * 1.4141 / gainvlt(9)))
+                        
+    ElseIf ppk * gainvlt(10) > 60 * 1.41 And ppk * gainvlt(11) <= 100 * 1.41 Then
+        m = (gainvlt(11) - gainvlt(10)) / (100 * 1.4142 / gainvlt(11) - 60 * 1.4142 / gainvlt(10))
+        vltgain = gainvlt(10) + (m * (ppk - 60 * 1.4141 / gainvlt(10)))
+            
+    ElseIf ppk * gainvlt(11) >= 100 * 1.41 Then
+    
+        vltgain = gainvlt(11)
+        
+    End If
+Case 4 ' 230 kv m.r
+         
+    If ppk * gainvlt(12) <= 30 * 1.41 Then '  gain6 (30)  gain7(60)  gain8(100)
+        vltgain = gainvlt(12)
+        
+     ElseIf (ppk * gainvlt(12) > 30 * 1.41) And (ppk * gainvlt(13) <= 60 * 1.41) Then
+        m = (gainvlt(13) - gainvlt(12)) / (60 * 1.4142 / gainvlt(13) - 30 * 1.4142 / gainvlt(12))
+        vltgain = gainvlt(12) + (m * (ppk - 30 * 1.4141 / gainvlt(12)))
+                        
+    ElseIf ppk * gainvlt(13) > 60 * 1.41 And ppk * gainvlt(14) <= 100 * 1.41 Then
+        m = (gainvlt(14) - gainvlt(13)) / (100 * 1.4142 / gainvlt(14) - 60 * 1.4142 / gainvlt(13))
+        vltgain = gainvlt(13) + (m * (ppk - 60 * 1.4141 / gainvlt(13)))
+            
+    ElseIf ppk * gainvlt(14) >= 100 * 1.41 Then
+    
+        vltgain = gainvlt(14)
+        
+    End If
+Case 5 ' 400 kv m.r
+         
+    If ppk * gainvlt(15) <= 30 * 1.41 Then '  gain6 (30)  gain7(60)  gain8(100)
+        vltgain = gainvlt(15)
+        
+     ElseIf (ppk * gainvlt(15) > 30 * 1.41) And (ppk * gainvlt(16) <= 60 * 1.41) Then
+        m = (gainvlt(16) - gainvlt(15)) / (60 * 1.4142 / gainvlt(16) - 30 * 1.4142 / gainvlt(15))
+        vltgain = gainvlt(15) + (m * (ppk - 30 * 1.4141 / gainvlt(15)))
+                        
+    ElseIf ppk * gainvlt(16) > 60 * 1.41 And ppk * gainvlt(17) <= 100 * 1.41 Then
+        m = (gainvlt(17) - gainvlt(16)) / (100 * 1.4142 / gainvlt(17) - 60 * 1.4142 / gainvlt(16))
+        vltgain = gainvlt(16) + (m * (ppk - 60 * 1.4141 / gainvlt(16)))
+            
+    ElseIf ppk * gainvlt(17) >= 100 * 1.41 Then
+    
+        vltgain = gainvlt(17)
+        
+    End If
 End Select
 
     
@@ -3158,7 +3215,22 @@ Case 0 ' 10 KV
     Case 12
         vltdiv = gainvlt(1) / 80
         Call mdl1.leftlable(80 * 4)
+  
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(1) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(1) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(1) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
+       
+    
+  
 
 Case 1 ' 50 kv
 
@@ -3203,7 +3275,19 @@ Case 1 ' 50 kv
     Case 12
         vltdiv = gainvlt(4) / 80
         Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(4) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(4) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(4) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
+    
     
     
 Case 2  ' 100 kv
@@ -3249,7 +3333,74 @@ Case 2  ' 100 kv
     Case 12
         vltdiv = gainvlt(7) / 80
         Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(7) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(7) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(7) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
+    
+Case 3  ' 100 kv
+
+    Select Case cmbosc1.ListIndex
+    
+    Case 0
+        vltdiv = gainvlt(10) / 0.1
+        Call mdl1.leftlable(0.1 * 4)
+    Case 1
+        vltdiv = gainvlt(10) / 1
+        Call mdl1.leftlable(1 * 4)
+    Case 2
+       vltdiv = gainvlt(10) / 2
+        Call mdl1.leftlable(2 * 4)
+    Case 3
+        vltdiv = gainvlt(10) / 5
+        Call mdl1.leftlable(5 * 4)
+    Case 4
+        vltdiv = gainvlt(10) / 8
+        Call mdl1.leftlable(8 * 4)
+    Case 5
+        vltdiv = gainvlt(10) / 10
+        Call mdl1.leftlable(10 * 4)
+    Case 6
+        vltdiv = gainvlt(10) / 20
+        Call mdl1.leftlable(20 * 4)
+    Case 7
+        vltdiv = gainvlt(10) / 30
+        Call mdl1.leftlable(30 * 4)
+    Case 8
+        vltdiv = gainvlt(10) / 40
+        Call mdl1.leftlable(40 * 4)
+    Case 9
+        vltdiv = gainvlt(10) / 50
+        Call mdl1.leftlable(50 * 4)
+    Case 10
+        vltdiv = gainvlt(10) / 60
+        Call mdl1.leftlable(60 * 4)
+    Case 11
+        vltdiv = gainvlt(10) / 70
+        Call mdl1.leftlable(70 * 4)
+    Case 12
+        vltdiv = gainvlt(10) / 80
+        Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(10) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(10) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(10) / 400
+        Call mdl1.leftlable(400 * 4)
+End Select
 End Select
 
 End Sub
@@ -3300,7 +3451,18 @@ Case 0
     Case 12
         vltdiv = gainvlt(1) / 80
         Call mdl1.leftlable(80 * 4)
-    End Select
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(1) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(1) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(1) / 400
+        Call mdl1.leftlable(400 * 4)
+End Select
 
 Case 1
     Select Case cmbosc1.ListIndex
@@ -3344,7 +3506,18 @@ Case 1
     Case 12
         vltdiv = gainvlt(4) / 80
         Call mdl1.leftlable(80 * 4)
-    End Select
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(4) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(4) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(4) / 400
+        Call mdl1.leftlable(400 * 4)
+End Select
 Case 2
     Select Case cmbosc1.ListIndex
     
@@ -3387,7 +3560,19 @@ Case 2
     Case 12
         vltdiv = gainvlt(7) / 80
         Call mdl1.leftlable(80 * 4)
-    End Select
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(7) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(7) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(7) / 400
+        Call mdl1.leftlable(400 * 4)
+End Select
+
 End Select
 
 End Sub
@@ -3589,7 +3774,19 @@ Case 0 ' 10 kV
     Case 12
         vltdiv = gainvlt(1) / 80
         Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(1) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(1) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(1) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
+ 
 
 Case 1 ' 50 kV
     Select Case cmbosc1.ListIndex
@@ -3633,7 +3830,19 @@ Case 1 ' 50 kV
     Case 12
         vltdiv = gainvlt(4) / 80
         Call mdl1.leftlable(80 * 4)
+  Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(4) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(4) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(4) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
+ 
     
 Case 2 ' 100 kv
 
@@ -3678,9 +3887,185 @@ Case 2 ' 100 kv
     Case 12
         vltdiv = gainvlt(7) / 80
         Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(7) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(7) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(7) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
-End Select
+Case 3 ' 132 kv
 
+    Select Case cmbosc1.ListIndex
+    
+    Case 0
+        vltdiv = gainvlt(10) / 0.1
+        Call mdl1.leftlable(0.1 * 4)
+    Case 1
+        vltdiv = gainvlt(10) / 1
+        Call mdl1.leftlable(1 * 4)
+    Case 2
+       vltdiv = gainvlt(10) / 2
+        Call mdl1.leftlable(2 * 4)
+    Case 3
+        vltdiv = gainvlt(10) / 5
+        Call mdl1.leftlable(5 * 4)
+    Case 4
+        vltdiv = gainvlt(10) / 8
+        Call mdl1.leftlable(8 * 4)
+    Case 5
+        vltdiv = gainvlt(10) / 10
+        Call mdl1.leftlable(10 * 4)
+    Case 6
+        vltdiv = gainvlt(10) / 20
+        Call mdl1.leftlable(20 * 4)
+    Case 7
+        vltdiv = gainvlt(10) / 30
+        Call mdl1.leftlable(30 * 4)
+    Case 8
+        vltdiv = gainvlt(10) / 40
+        Call mdl1.leftlable(40 * 4)
+    Case 9
+        vltdiv = gainvlt(10) / 50
+        Call mdl1.leftlable(50 * 4)
+    Case 10
+        vltdiv = gainvlt(10) / 60
+        Call mdl1.leftlable(60 * 4)
+    Case 11
+        vltdiv = gainvlt(10) / 70
+        Call mdl1.leftlable(70 * 4)
+    Case 12
+        vltdiv = gainvlt(10) / 80
+        Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(10) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(10) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(10) / 400
+        Call mdl1.leftlable(400 * 4)
+    End Select
+
+Case 4 ' 230 kv
+
+    Select Case cmbosc1.ListIndex
+    
+    Case 0
+        vltdiv = gainvlt(13) / 0.1
+        Call mdl1.leftlable(0.1 * 4)
+    Case 1
+        vltdiv = gainvlt(13) / 1
+        Call mdl1.leftlable(1 * 4)
+    Case 2
+       vltdiv = gainvlt(13) / 2
+        Call mdl1.leftlable(2 * 4)
+    Case 3
+        vltdiv = gainvlt(13) / 5
+        Call mdl1.leftlable(5 * 4)
+    Case 4
+        vltdiv = gainvlt(13) / 8
+        Call mdl1.leftlable(8 * 4)
+    Case 5
+        vltdiv = gainvlt(13) / 10
+        Call mdl1.leftlable(10 * 4)
+    Case 6
+        vltdiv = gainvlt(13) / 20
+        Call mdl1.leftlable(20 * 4)
+    Case 7
+        vltdiv = gainvlt(13) / 30
+        Call mdl1.leftlable(30 * 4)
+    Case 8
+        vltdiv = gainvlt(13) / 40
+        Call mdl1.leftlable(40 * 4)
+    Case 9
+        vltdiv = gainvlt(13) / 50
+        Call mdl1.leftlable(50 * 4)
+    Case 10
+        vltdiv = gainvlt(13) / 60
+        Call mdl1.leftlable(60 * 4)
+    Case 11
+        vltdiv = gainvlt(13) / 70
+        Call mdl1.leftlable(70 * 4)
+    Case 12
+        vltdiv = gainvlt(13) / 80
+        Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(13) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(13) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(13) / 400
+        Call mdl1.leftlable(400 * 4)
+    End Select
+Case 5 ' 400 kv
+
+    Select Case cmbosc1.ListIndex
+    
+    Case 0
+        vltdiv = gainvlt(16) / 0.1
+        Call mdl1.leftlable(0.1 * 4)
+    Case 1
+        vltdiv = gainvlt(16) / 1
+        Call mdl1.leftlable(1 * 4)
+    Case 2
+       vltdiv = gainvlt(16) / 2
+        Call mdl1.leftlable(2 * 4)
+    Case 3
+        vltdiv = gainvlt(16) / 5
+        Call mdl1.leftlable(5 * 4)
+    Case 4
+        vltdiv = gainvlt(16) / 8
+        Call mdl1.leftlable(8 * 4)
+    Case 5
+        vltdiv = gainvlt(16) / 10
+        Call mdl1.leftlable(10 * 4)
+    Case 6
+        vltdiv = gainvlt(16) / 20
+        Call mdl1.leftlable(20 * 4)
+    Case 7
+        vltdiv = gainvlt(16) / 30
+        Call mdl1.leftlable(30 * 4)
+    Case 8
+        vltdiv = gainvlt(16) / 40
+        Call mdl1.leftlable(40 * 4)
+    Case 9
+        vltdiv = gainvlt(16) / 50
+        Call mdl1.leftlable(50 * 4)
+    Case 10
+        vltdiv = gainvlt(16) / 60
+        Call mdl1.leftlable(60 * 4)
+    Case 11
+        vltdiv = gainvlt(16) / 70
+        Call mdl1.leftlable(70 * 4)
+    Case 12
+        vltdiv = gainvlt(16) / 80
+        Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(16) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(16) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(16) / 400
+        Call mdl1.leftlable(400 * 4)
+    End Select
+  End Select
 End Sub
 
 Private Sub cmbvsel_Click()
@@ -3729,6 +4114,17 @@ Case 0 ' 10 kv
     Case 12
         vltdiv = gainvlt(1) / 80
         Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(1) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(1) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(1) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
 
 Case 1   ' 50 kv
@@ -3774,6 +4170,17 @@ Case 1   ' 50 kv
     Case 12
         vltdiv = gainvlt(4) / 80
         Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(4) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(4) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(4) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
     
 Case 2  ' 100 kv
@@ -3819,8 +4226,185 @@ Case 2  ' 100 kv
     Case 12
         vltdiv = gainvlt(7) / 80
         Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(7) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(7) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(7) / 400
+        Call mdl1.leftlable(400 * 4)
     End Select
-End Select
+Case 3 'm.r  132 kv
+
+    Select Case cmbosc1.ListIndex
+    
+    Case 0
+        vltdiv = gainvlt(10) / 0.1
+        Call mdl1.leftlable(0.1 * 4)
+    Case 1
+        vltdiv = gainvlt(10) / 1
+        Call mdl1.leftlable(1 * 4)
+    Case 2
+       vltdiv = gainvlt(10) / 2
+        Call mdl1.leftlable(2 * 4)
+    Case 3
+        vltdiv = gainvlt(10) / 5
+        Call mdl1.leftlable(5 * 4)
+    Case 4
+        vltdiv = gainvlt(10) / 8
+        Call mdl1.leftlable(8 * 4)
+    Case 5
+        vltdiv = gainvlt(10) / 10
+        Call mdl1.leftlable(10 * 4)
+    Case 6
+        vltdiv = gainvlt(10) / 20
+        Call mdl1.leftlable(20 * 4)
+    Case 7
+        vltdiv = gainvlt(10) / 30
+        Call mdl1.leftlable(30 * 4)
+    Case 8
+        vltdiv = gainvlt(10) / 40
+        Call mdl1.leftlable(40 * 4)
+    Case 9
+        vltdiv = gainvlt(10) / 50
+        Call mdl1.leftlable(50 * 4)
+    Case 10
+        vltdiv = gainvlt(10) / 60
+        Call mdl1.leftlable(60 * 4)
+    Case 11
+        vltdiv = gainvlt(10) / 70
+        Call mdl1.leftlable(70 * 4)
+    Case 12
+        vltdiv = gainvlt(10) / 80
+        Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(10) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(10) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(10) / 400
+        Call mdl1.leftlable(400 * 4)
+    End Select
+
+Case 4 'm.r  230 kv
+
+    Select Case cmbosc1.ListIndex
+    
+    Case 0
+        vltdiv = gainvlt(13) / 0.1
+        Call mdl1.leftlable(0.1 * 4)
+    Case 1
+        vltdiv = gainvlt(13) / 1
+        Call mdl1.leftlable(1 * 4)
+    Case 2
+       vltdiv = gainvlt(13) / 2
+        Call mdl1.leftlable(2 * 4)
+    Case 3
+        vltdiv = gainvlt(13) / 5
+        Call mdl1.leftlable(5 * 4)
+    Case 4
+        vltdiv = gainvlt(13) / 8
+        Call mdl1.leftlable(8 * 4)
+    Case 5
+        vltdiv = gainvlt(13) / 10
+        Call mdl1.leftlable(10 * 4)
+    Case 6
+        vltdiv = gainvlt(13) / 20
+        Call mdl1.leftlable(20 * 4)
+    Case 7
+        vltdiv = gainvlt(13) / 30
+        Call mdl1.leftlable(30 * 4)
+    Case 8
+        vltdiv = gainvlt(13) / 40
+        Call mdl1.leftlable(40 * 4)
+    Case 9
+        vltdiv = gainvlt(13) / 50
+        Call mdl1.leftlable(50 * 4)
+    Case 10
+        vltdiv = gainvlt(13) / 60
+        Call mdl1.leftlable(60 * 4)
+    Case 11
+        vltdiv = gainvlt(13) / 70
+        Call mdl1.leftlable(70 * 4)
+    Case 12
+        vltdiv = gainvlt(13) / 80
+        Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(13) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(13) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(13) / 400
+        Call mdl1.leftlable(400 * 4)
+    End Select
+Case 5 ' m.r 400 kv
+
+    Select Case cmbosc1.ListIndex
+    
+    Case 0
+        vltdiv = gainvlt(16) / 0.1
+        Call mdl1.leftlable(0.1 * 4)
+    Case 1
+        vltdiv = gainvlt(16) / 1
+        Call mdl1.leftlable(1 * 4)
+    Case 2
+       vltdiv = gainvlt(16) / 2
+        Call mdl1.leftlable(2 * 4)
+    Case 3
+        vltdiv = gainvlt(16) / 5
+        Call mdl1.leftlable(5 * 4)
+    Case 4
+        vltdiv = gainvlt(16) / 8
+        Call mdl1.leftlable(8 * 4)
+    Case 5
+        vltdiv = gainvlt(16) / 10
+        Call mdl1.leftlable(10 * 4)
+    Case 6
+        vltdiv = gainvlt(16) / 20
+        Call mdl1.leftlable(20 * 4)
+    Case 7
+        vltdiv = gainvlt(16) / 30
+        Call mdl1.leftlable(30 * 4)
+    Case 8
+        vltdiv = gainvlt(16) / 40
+        Call mdl1.leftlable(40 * 4)
+    Case 9
+        vltdiv = gainvlt(16) / 50
+        Call mdl1.leftlable(50 * 4)
+    Case 10
+        vltdiv = gainvlt(16) / 60
+        Call mdl1.leftlable(60 * 4)
+    Case 11
+        vltdiv = gainvlt(16) / 70
+        Call mdl1.leftlable(70 * 4)
+    Case 12
+        vltdiv = gainvlt(16) / 80
+        Call mdl1.leftlable(80 * 4)
+    Case 13  ' "132 KV", 3 ' m.r added
+        vltdiv = gainvlt(16) / 132
+        Call mdl1.leftlable(132 * 4)
+ 
+    Case 14 ' "230 KV", 4 ' m.r added
+        vltdiv = gainvlt(16) / 320
+        Call mdl1.leftlable(320 * 4)
+ 
+    Case 15  ' "400 KV", 5 ' m.r added
+        vltdiv = gainvlt(16) / 400
+        Call mdl1.leftlable(400 * 4)
+    End Select
+  End Select
 
 End Sub
 
@@ -4043,6 +4627,18 @@ With datatestprmt
     gainvlt(7) = .Recordset.Fields("Voltage_gain_100_60")
     gainvlt(8) = .Recordset.Fields("Voltage_gain_100_100")
     
+    gainvlt(9) = .Recordset.Fields("Voltage_gain_132_10")
+    gainvlt(10) = .Recordset.Fields("Voltage_gain_132_66")
+    gainvlt(11) = .Recordset.Fields("Voltage_gain_132_132")
+            
+    gainvlt(12) = .Recordset.Fields("Voltage_gain_230_10")
+    gainvlt(13) = .Recordset.Fields("Voltage_gain_230_115")
+    gainvlt(14) = .Recordset.Fields("Voltage_gain_230_230")
+            
+    gainvlt(15) = .Recordset.Fields("Voltage_gain_400_10")
+    gainvlt(16) = .Recordset.Fields("Voltage_gain_400_200")
+    gainvlt(17) = .Recordset.Fields("Voltage_gain_400_400")
+            
     gaincrt(0) = .Recordset.Fields("Current_gain_0_1")
     gaincrt(1) = .Recordset.Fields("Current_gain_0_15")
     gaincrt(2) = .Recordset.Fields("Current_gain_0_2")
@@ -4243,6 +4839,18 @@ With datatestprmt
     gainvlt(7) = .Recordset.Fields("Voltage_gain_100_60")
     gainvlt(8) = .Recordset.Fields("Voltage_gain_100_100")
     
+    gainvlt(9) = .Recordset.Fields("Voltage_gain_100_100")
+    gainvlt(10) = .Recordset.Fields("Voltage_gain_100_100")
+    gainvlt(11) = .Recordset.Fields("Voltage_gain_100_100")
+            
+    gainvlt(12) = .Recordset.Fields("Voltage_gain_100_100")
+    gainvlt(13) = .Recordset.Fields("Voltage_gain_100_100")
+    gainvlt(14) = .Recordset.Fields("Voltage_gain_100_100")
+            
+    gainvlt(15) = .Recordset.Fields("Voltage_gain_100_100")
+    gainvlt(16) = .Recordset.Fields("Voltage_gain_100_100")
+    gainvlt(17) = .Recordset.Fields("Voltage_gain_100_100")
+    
     gaincrt(0) = .Recordset.Fields("Current_gain_0_1")
     gaincrt(1) = .Recordset.Fields("Current_gain_0_15")
     gaincrt(2) = .Recordset.Fields("Current_gain_0_2")
@@ -4289,6 +4897,9 @@ With cmbosc1
     .AddItem "60 KV", 10
     .AddItem "70 KV", 11
     .AddItem "80 KV", 12
+    '.AddItem "132 KV", 13 ' m.r added
+    '.AddItem "230 KV", 14 ' m.r added
+    '.AddItem "400 KV", 15 ' m.r added
     .Text = "8 KV"
 End With
 
@@ -4316,6 +4927,9 @@ With cmbvsel
     .AddItem "10 KV", 0
     .AddItem "50 KV", 1
     .AddItem "100 KV", 2
+    .AddItem "132 KV", 3 ' m.r added
+    .AddItem "230 KV", 4 ' m.r added
+    .AddItem "400 KV", 5 ' m.r added
     .Text = "50 KV"
 End With
 

@@ -8,24 +8,23 @@ Begin VB.Form FRMCAL
    ClientHeight    =   9585
    ClientLeft      =   60
    ClientTop       =   345
-   ClientWidth     =   12630
+   ClientWidth     =   10290
    FillColor       =   &H00FFFFFF&
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    ScaleHeight     =   9585
-   ScaleWidth      =   12630
+   ScaleWidth      =   10290
    StartUpPosition =   2  'CenterScreen
    Begin TabDlg.SSTab Tab0 
-      Height          =   3015
-      Left            =   -15
+      Height          =   3615
+      Left            =   -30
       TabIndex        =   14
-      Top             =   120
+      Top             =   75
       Width           =   9975
       _ExtentX        =   17595
-      _ExtentY        =   5318
+      _ExtentY        =   6376
       _Version        =   393216
       Tabs            =   2
-      Tab             =   1
       TabsPerRow      =   2
       TabHeight       =   520
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -39,27 +38,81 @@ Begin VB.Form FRMCAL
       EndProperty
       TabCaption(0)   =   "Gain Setting of Signal"
       TabPicture(0)   =   "Calibration.frx":0000
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "FRAM1"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "Check Calibration Results"
       TabPicture(1)   =   "Calibration.frx":001C
-      Tab(1).ControlEnabled=   -1  'True
-      Tab(1).Control(0)=   "optc(0)"
-      Tab(1).Control(0).Enabled=   0   'False
-      Tab(1).Control(1)=   "optc(1)"
-      Tab(1).Control(1).Enabled=   0   'False
-      Tab(1).Control(2)=   "optc(2)"
-      Tab(1).Control(2).Enabled=   0   'False
-      Tab(1).Control(3)=   "optc(3)"
-      Tab(1).Control(3).Enabled=   0   'False
-      Tab(1).Control(4)=   "optc(4)"
-      Tab(1).Control(4).Enabled=   0   'False
-      Tab(1).Control(5)=   "optc(5)"
-      Tab(1).Control(5).Enabled=   0   'False
-      Tab(1).Control(6)=   "optc(6)"
-      Tab(1).Control(6).Enabled=   0   'False
-      Tab(1).ControlCount=   7
+      Tab(1).ControlEnabled=   0   'False
+      Tab(1).Control(0)=   "optc(9)"
+      Tab(1).Control(1)=   "optc(8)"
+      Tab(1).Control(2)=   "optc(7)"
+      Tab(1).Control(3)=   "optc(6)"
+      Tab(1).Control(4)=   "optc(5)"
+      Tab(1).Control(5)=   "optc(4)"
+      Tab(1).Control(6)=   "optc(3)"
+      Tab(1).Control(7)=   "optc(2)"
+      Tab(1).Control(8)=   "optc(1)"
+      Tab(1).Control(9)=   "optc(0)"
+      Tab(1).ControlCount=   10
+      Begin VB.OptionButton optc 
+         Caption         =   "VOLTAGE (0-400 kV)"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Index           =   9
+         Left            =   -74715
+         TabIndex        =   41
+         Top             =   2895
+         Width           =   2175
+      End
+      Begin VB.OptionButton optc 
+         Caption         =   "VOLTAGE (0-232 kV)"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Index           =   8
+         Left            =   -74700
+         TabIndex        =   40
+         Top             =   2460
+         Width           =   2175
+      End
+      Begin VB.OptionButton optc 
+         Caption         =   "VOLTAGE (0-132 kV)"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   9.75
+            Charset         =   178
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Index           =   7
+         Left            =   -74670
+         TabIndex        =   37
+         Top             =   2040
+         Width           =   2175
+      End
       Begin VB.OptionButton optc 
          Caption         =   "CURRENT  (0 - 10 mA)"
          BeginProperty Font 
@@ -74,9 +127,9 @@ Begin VB.Form FRMCAL
          ForeColor       =   &H00008000&
          Height          =   255
          Index           =   6
-         Left            =   6840
-         TabIndex        =   36
-         Top             =   960
+         Left            =   -68235
+         TabIndex        =   33
+         Top             =   555
          Width           =   2775
       End
       Begin VB.OptionButton optc 
@@ -93,9 +146,9 @@ Begin VB.Form FRMCAL
          ForeColor       =   &H000000C0&
          Height          =   255
          Index           =   5
-         Left            =   3840
-         TabIndex        =   35
-         Top             =   2400
+         Left            =   -71265
+         TabIndex        =   32
+         Top             =   1725
          Width           =   2175
       End
       Begin VB.OptionButton optc 
@@ -112,9 +165,9 @@ Begin VB.Form FRMCAL
          ForeColor       =   &H000000C0&
          Height          =   255
          Index           =   4
-         Left            =   3840
-         TabIndex        =   34
-         Top             =   1680
+         Left            =   -71265
+         TabIndex        =   31
+         Top             =   1155
          Width           =   2175
       End
       Begin VB.OptionButton optc 
@@ -131,9 +184,9 @@ Begin VB.Form FRMCAL
          ForeColor       =   &H000000C0&
          Height          =   255
          Index           =   3
-         Left            =   3840
-         TabIndex        =   33
-         Top             =   960
+         Left            =   -71250
+         TabIndex        =   30
+         Top             =   600
          Width           =   2175
       End
       Begin VB.OptionButton optc 
@@ -150,9 +203,9 @@ Begin VB.Form FRMCAL
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   2
-         Left            =   360
-         TabIndex        =   32
-         Top             =   2400
+         Left            =   -74670
+         TabIndex        =   29
+         Top             =   1590
          Width           =   2175
       End
       Begin VB.OptionButton optc 
@@ -169,9 +222,9 @@ Begin VB.Form FRMCAL
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   1
-         Left            =   360
-         TabIndex        =   31
-         Top             =   1680
+         Left            =   -74685
+         TabIndex        =   28
+         Top             =   1095
          Width           =   2175
       End
       Begin VB.OptionButton optc 
@@ -188,9 +241,9 @@ Begin VB.Form FRMCAL
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   0
-         Left            =   360
-         TabIndex        =   30
-         Top             =   960
+         Left            =   -74670
+         TabIndex        =   27
+         Top             =   615
          Width           =   2175
       End
       Begin VB.Frame FRAM1 
@@ -203,107 +256,13 @@ Begin VB.Form FRMCAL
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   2295
-         Left            =   -74880
+         Height          =   3120
+         Left            =   135
          TabIndex        =   15
-         Top             =   480
-         Width           =   9255
-         Begin VB.ComboBox cmbcrt 
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   178
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00008000&
-            Height          =   360
-            Left            =   4560
-            Style           =   2  'Dropdown List
-            TabIndex        =   24
-            Top             =   1560
-            Width           =   1095
-         End
+         Top             =   315
+         Width           =   9330
          Begin VB.OptionButton opt 
-            Caption         =   "10 [mA]"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   178
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00008000&
-            Height          =   375
-            Index           =   6
-            Left            =   4600
-            TabIndex        =   23
-            Top             =   1000
-            Width           =   1215
-         End
-         Begin VB.OptionButton opt 
-            Caption         =   "20 [Pc]"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   178
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000080&
-            Height          =   375
-            Index           =   5
-            Left            =   7200
-            TabIndex        =   22
-            Top             =   1600
-            Width           =   1095
-         End
-         Begin VB.OptionButton opt 
-            Caption         =   "10   [Pc]"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   178
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000080&
-            Height          =   240
-            Index           =   4
-            Left            =   7200
-            TabIndex        =   21
-            Top             =   1300
-            Width           =   1095
-         End
-         Begin VB.OptionButton opt 
-            Caption         =   "2   [Pc]"
-            BeginProperty Font 
-               Name            =   "Arial"
-               Size            =   9.75
-               Charset         =   178
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            ForeColor       =   &H00000080&
-            Height          =   255
-            Index           =   3
-            Left            =   7200
-            TabIndex        =   20
-            Top             =   900
-            Width           =   1335
-         End
-         Begin VB.OptionButton opt 
-            Caption         =   "100 [KV]"
+            Caption         =   "400 [KV]"
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   9.75
@@ -315,14 +274,14 @@ Begin VB.Form FRMCAL
             EndProperty
             ForeColor       =   &H00800000&
             Height          =   255
-            Index           =   2
-            Left            =   2520
-            TabIndex        =   19
-            Top             =   1000
+            Index           =   9
+            Left            =   5835
+            TabIndex        =   42
+            Top             =   660
             Width           =   1095
          End
          Begin VB.OptionButton opt 
-            Caption         =   " 50 [KV]"
+            Caption         =   "230 [KV]"
             BeginProperty Font 
                Name            =   "Arial"
                Size            =   9.75
@@ -334,11 +293,29 @@ Begin VB.Form FRMCAL
             EndProperty
             ForeColor       =   &H00800000&
             Height          =   255
-            Index           =   1
-            Left            =   1400
-            TabIndex        =   18
-            Top             =   1000
-            Value           =   -1  'True
+            Index           =   8
+            Left            =   4695
+            TabIndex        =   39
+            Top             =   660
+            Width           =   1095
+         End
+         Begin VB.OptionButton opt 
+            Caption         =   "132 [KV]"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   178
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Index           =   7
+            Left            =   3540
+            TabIndex        =   38
+            Top             =   660
             Width           =   1095
          End
          Begin VB.OptionButton opt 
@@ -355,10 +332,145 @@ Begin VB.Form FRMCAL
             ForeColor       =   &H00800000&
             Height          =   255
             Index           =   0
-            Left            =   360
-            TabIndex        =   17
-            Top             =   1000
+            Left            =   285
+            TabIndex        =   36
+            Top             =   660
             Width           =   975
+         End
+         Begin VB.OptionButton opt 
+            Caption         =   " 50 [KV]"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   178
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Index           =   1
+            Left            =   1320
+            TabIndex        =   35
+            Top             =   660
+            Value           =   -1  'True
+            Width           =   1095
+         End
+         Begin VB.OptionButton opt 
+            Caption         =   "100 [KV]"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   178
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Index           =   2
+            Left            =   2430
+            TabIndex        =   34
+            Top             =   660
+            Width           =   1095
+         End
+         Begin VB.ComboBox cmbcrt 
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   178
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00008000&
+            Height          =   360
+            ItemData        =   "Calibration.frx":0038
+            Left            =   210
+            List            =   "Calibration.frx":003A
+            Style           =   2  'Dropdown List
+            TabIndex        =   21
+            Top             =   2010
+            Width           =   1455
+         End
+         Begin VB.OptionButton opt 
+            Caption         =   "10 [mA]"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   178
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00008000&
+            Height          =   375
+            Index           =   6
+            Left            =   1935
+            TabIndex        =   20
+            Top             =   2040
+            Width           =   1215
+         End
+         Begin VB.OptionButton opt 
+            Caption         =   "20   [Pc]"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   178
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000080&
+            Height          =   375
+            Index           =   5
+            Left            =   7785
+            TabIndex        =   19
+            Top             =   2040
+            Width           =   1095
+         End
+         Begin VB.OptionButton opt 
+            Caption         =   "10   [Pc]"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   178
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000080&
+            Height          =   240
+            Index           =   4
+            Left            =   7785
+            TabIndex        =   18
+            Top             =   1740
+            Width           =   1095
+         End
+         Begin VB.OptionButton opt 
+            Caption         =   "2   [Pc]"
+            BeginProperty Font 
+               Name            =   "Arial"
+               Size            =   9.75
+               Charset         =   178
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00000080&
+            Height          =   255
+            Index           =   3
+            Left            =   7785
+            TabIndex        =   17
+            Top             =   1335
+            Width           =   1095
          End
          Begin VB.ComboBox cmbvlt 
             BeginProperty Font 
@@ -372,10 +484,12 @@ Begin VB.Form FRMCAL
             EndProperty
             ForeColor       =   &H00800000&
             Height          =   360
-            Left            =   360
+            ItemData        =   "Calibration.frx":003C
+            Left            =   240
+            List            =   "Calibration.frx":003E
             TabIndex        =   16
             Text            =   "Combo1"
-            Top             =   1560
+            Top             =   1320
             Width           =   1455
          End
          Begin VB.Label lblvol 
@@ -394,7 +508,7 @@ Begin VB.Form FRMCAL
             Height          =   240
             Index           =   0
             Left            =   1200
-            TabIndex        =   29
+            TabIndex        =   26
             Top             =   360
             Width           =   1695
          End
@@ -413,9 +527,9 @@ Begin VB.Form FRMCAL
             ForeColor       =   &H00000080&
             Height          =   240
             Index           =   2
-            Left            =   7500
-            TabIndex        =   28
-            Top             =   345
+            Left            =   8145
+            TabIndex        =   25
+            Top             =   855
             Width           =   390
          End
          Begin VB.Label lblvol 
@@ -433,9 +547,9 @@ Begin VB.Form FRMCAL
             ForeColor       =   &H00008000&
             Height          =   240
             Index           =   1
-            Left            =   4600
-            TabIndex        =   27
-            Top             =   350
+            Left            =   1980
+            TabIndex        =   24
+            Top             =   1665
             Width           =   1125
          End
          Begin VB.Label lblvol 
@@ -453,9 +567,9 @@ Begin VB.Form FRMCAL
             ForeColor       =   &H00800000&
             Height          =   240
             Index           =   3
-            Left            =   1920
-            TabIndex        =   26
-            Top             =   1680
+            Left            =   255
+            TabIndex        =   23
+            Top             =   990
             Width           =   1050
          End
          Begin VB.Label lblvol 
@@ -473,18 +587,18 @@ Begin VB.Form FRMCAL
             ForeColor       =   &H00008000&
             Height          =   240
             Index           =   4
-            Left            =   5760
-            TabIndex        =   25
-            Top             =   1680
+            Left            =   225
+            TabIndex        =   22
+            Top             =   1740
             Width           =   1095
          End
       End
    End
    Begin ComctlLib.Slider SLD 
       Height          =   4455
-      Left            =   9840
+      Left            =   9450
       TabIndex        =   13
-      Top             =   4320
+      Top             =   4920
       Width           =   675
       _ExtentX        =   1191
       _ExtentY        =   7858
@@ -496,7 +610,7 @@ Begin VB.Form FRMCAL
    Begin MSAdodcLib.Adodc Data 
       Height          =   375
       Left            =   7320
-      Top             =   8880
+      Top             =   9195
       Visible         =   0   'False
       Width           =   2055
       _ExtentX        =   3625
@@ -552,10 +666,12 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   345
-      Left            =   1680
+      ItemData        =   "Calibration.frx":0040
+      Left            =   1200
+      List            =   "Calibration.frx":0042
       TabIndex        =   10
       Text            =   "cmbcon1"
-      Top             =   3360
+      Top             =   4035
       Width           =   1095
    End
    Begin VB.CommandButton CMDSET 
@@ -570,9 +686,9 @@ Begin VB.Form FRMCAL
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   9960
+      Left            =   8280
       TabIndex        =   1
-      Top             =   3240
+      Top             =   3900
       Width           =   1575
    End
    Begin VB.TextBox TXTGAIN 
@@ -587,11 +703,11 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   405
-      Left            =   5400
+      Left            =   4905
       TabIndex        =   9
       TabStop         =   0   'False
       Text            =   " "
-      Top             =   3840
+      Top             =   4575
       Width           =   1335
    End
    Begin VB.TextBox TXTVOL 
@@ -606,18 +722,18 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   420
-      Left            =   5400
+      Left            =   4920
       TabIndex        =   4
       TabStop         =   0   'False
       Text            =   " "
-      Top             =   3240
+      Top             =   3915
       Width           =   1335
    End
    Begin VB.Timer t0 
       Enabled         =   0   'False
       Interval        =   500
-      Left            =   10920
-      Top             =   2400
+      Left            =   2505
+      Top             =   3780
    End
    Begin VB.CommandButton cmdend 
       Caption         =   "End"
@@ -631,9 +747,9 @@ Begin VB.Form FRMCAL
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   10200
+      Left            =   7860
       TabIndex        =   3
-      Top             =   1680
+      Top             =   4455
       Width           =   1095
    End
    Begin VB.CommandButton cmdstart 
@@ -648,16 +764,16 @@ Begin VB.Form FRMCAL
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   10200
+      Left            =   6615
       TabIndex        =   0
-      Top             =   840
+      Top             =   4440
       Width           =   1095
    End
    Begin VB.Timer t1 
       Enabled         =   0   'False
       Interval        =   50
-      Left            =   11760
-      Top             =   2400
+      Left            =   2040
+      Top             =   3795
    End
    Begin VB.ComboBox cmbvd 
       BeginProperty Font 
@@ -671,22 +787,22 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   345
-      Left            =   1680
+      Left            =   1200
       TabIndex        =   2
       Text            =   "Combo1"
-      Top             =   3840
+      Top             =   4515
       Width           =   1095
    End
    Begin VB.PictureBox pic 
       BackColor       =   &H80000005&
       FillColor       =   &H00FFFFFF&
       Height          =   4095
-      Left            =   240
+      Left            =   120
       ScaleHeight     =   4035
       ScaleWidth      =   9195
       TabIndex        =   5
       TabStop         =   0   'False
-      Top             =   4440
+      Top             =   4995
       Width           =   9255
       Begin VB.Line lv9 
          X1              =   8520
@@ -793,9 +909,9 @@ Begin VB.Form FRMCAL
       End
    End
    Begin BDaqOcxLibCtl.BufferedAiCtrl VIBuffer 
-      Left            =   11160
-      OleObjectBlob   =   "Calibration.frx":0038
-      Top             =   4440
+      Left            =   9150
+      OleObjectBlob   =   "Calibration.frx":0044
+      Top             =   4545
    End
    Begin VB.Label lblcon 
       AutoSize        =   -1  'True
@@ -811,9 +927,9 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   225
-      Left            =   720
+      Left            =   240
       TabIndex        =   12
-      Top             =   3360
+      Top             =   4035
       Width           =   735
    End
    Begin VB.Label lbl0 
@@ -829,10 +945,10 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   375
-      Left            =   6840
+      Left            =   6360
       TabIndex        =   11
-      Top             =   3240
-      Width           =   3735
+      Top             =   3915
+      Width           =   1725
    End
    Begin VB.Label lblgain 
       AutoSize        =   -1  'True
@@ -848,9 +964,9 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   240
-      Left            =   3480
+      Left            =   2865
       TabIndex        =   8
-      Top             =   3960
+      Top             =   4620
       Width           =   1845
    End
    Begin VB.Label LBLVOLT 
@@ -868,9 +984,9 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   240
-      Left            =   3960
+      Left            =   3480
       TabIndex        =   7
-      Top             =   3360
+      Top             =   4035
       Width           =   1170
    End
    Begin VB.Label lblvd 
@@ -887,9 +1003,9 @@ Begin VB.Form FRMCAL
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   225
-      Left            =   720
+      Left            =   240
       TabIndex        =   6
-      Top             =   3840
+      Top             =   4515
       Width           =   690
    End
 End
@@ -903,7 +1019,7 @@ Dim sDataBuffer() As Double
 Option Explicit
 Dim dwDeviceNum, rtv As Integer
 Dim gaincrt(0 To 14) As Single
-Dim gainvlt(0 To 8) As Single
+Dim gainvlt(0 To 18) As Single 'added m.r
 Dim gainpd(0 To 2) As Single
 Dim maxv, vltdiv, cond As Double
 Dim ppeak(1 To 4) As Double
@@ -1042,7 +1158,7 @@ If ((opt(3).Value = False And opt(4).Value = False And opt(5).Value = False) And
 
 '//////////////////////////////////////////////////////////////////
 
-If Tab0.Tab = 0 And (opt(0).Value = True Or opt(1).Value = True Or opt(2).Value = True) Then  ' voltage gain setting
+If Tab0.Tab = 0 And (opt(0).Value = True Or opt(1).Value = True Or opt(2).Value = True Or opt(7).Value = True Or opt(8).Value = True) Then  ' voltage gain setting
     
     If ppk < Abs(npk) Then ' find absolute peak
         ppk = Abs(npk)
@@ -1200,6 +1316,59 @@ ElseIf Tab0.Tab = 1 And optc(1).Value = True Then   ' voltage calibration  50 KV
     lbl0.Caption = "[KV]"
      
 ElseIf Tab0.Tab = 1 And optc(2).Value = True Then   ' voltage calibration   ' voltage calibration  100 KV
+
+    
+    If ppk < Abs(npk) Then ' find absolute peak
+        ppk = Abs(npk)
+    End If
+    
+    If ppk * gainvlt(6) <= 30 * 1.41 Then '  gain6 (30)  gain7(60)  gain8(100)
+        vltgain = gainvlt(6)
+        
+     ElseIf (ppk * gainvlt(6) > 30 * 1.41) And (ppk * gainvlt(7) <= 60 * 1.41) Then
+        m = (gainvlt(7) - gainvlt(6)) / (60 * 1.4142 / gainvlt(7) - 30 * 1.4142 / gainvlt(6))
+        vltgain = gainvlt(6) + (m * (ppk - 30 * 1.4141 / gainvlt(6)))
+                        
+    ElseIf ppk * gainvlt(7) > 60 * 1.41 And ppk * gainvlt(8) <= 100 * 1.41 Then
+        m = (gainvlt(8) - gainvlt(7)) / (100 * 1.4142 / gainvlt(8) - 60 * 1.4142 / gainvlt(7))
+        vltgain = gainvlt(7) + (m * (ppk - 60 * 1.4141 / gainvlt(7)))
+            
+    ElseIf ppk * gainvlt(8) >= 100 * 1.41 Then
+    
+        vltgain = gainvlt(8)
+        
+    End If
+    
+    TXTVOL.Text = Format((ppk / cond) * vltgain, "#0.0##")
+    lbl0.Caption = "[KV] "
+    
+ElseIf Tab0.Tab = 1 And optc(7).Value = True Then   ' voltage calibration   ' voltage calibration  230 KV
+
+    
+    If ppk < Abs(npk) Then ' find absolute peak
+        ppk = Abs(npk)
+    End If
+    
+    If ppk * gainvlt(6) <= 30 * 1.41 Then '  gain6 (30)  gain7(60)  gain8(100)
+        vltgain = gainvlt(6)
+        
+     ElseIf (ppk * gainvlt(6) > 30 * 1.41) And (ppk * gainvlt(7) <= 60 * 1.41) Then
+        m = (gainvlt(7) - gainvlt(6)) / (60 * 1.4142 / gainvlt(7) - 30 * 1.4142 / gainvlt(6))
+        vltgain = gainvlt(6) + (m * (ppk - 30 * 1.4141 / gainvlt(6)))
+                        
+    ElseIf ppk * gainvlt(7) > 60 * 1.41 And ppk * gainvlt(8) <= 100 * 1.41 Then
+        m = (gainvlt(8) - gainvlt(7)) / (100 * 1.4142 / gainvlt(8) - 60 * 1.4142 / gainvlt(7))
+        vltgain = gainvlt(7) + (m * (ppk - 60 * 1.4141 / gainvlt(7)))
+            
+    ElseIf ppk * gainvlt(8) >= 100 * 1.41 Then
+    
+        vltgain = gainvlt(8)
+        
+    End If
+    
+    TXTVOL.Text = Format((ppk / cond) * vltgain, "#0.0##")
+    lbl0.Caption = "[KV] "
+  ElseIf Tab0.Tab = 1 And optc(8).Value = True Then   ' voltage calibration   ' voltage calibration  400 KV
 
     
     If ppk < Abs(npk) Then ' find absolute peak
@@ -1445,6 +1614,10 @@ With optc(4)
     .Left = fram1.Width * 0.75
 End With
 
+With optc(5)
+    .Top = fram1.Height * 0.62
+    .Left = fram1.Width * 0.75
+End With
 With optc(5)
     .Top = fram1.Height * 0.86
     .Left = fram1.Width * 0.75
@@ -2162,6 +2335,18 @@ gainvlt(6) = Data.Recordset.Fields("Voltage_gain_100_30")
 gainvlt(7) = Data.Recordset.Fields("Voltage_gain_100_60")
 gainvlt(8) = Data.Recordset.Fields("Voltage_gain_100_100")
 
+    gainvlt(9) = Data.Recordset.Fields("Voltage_gain_132_10") 'added m.r
+    gainvlt(10) = Data.Recordset.Fields("Voltage_gain_132_66") 'added m.r
+    gainvlt(11) = Data.Recordset.Fields("Voltage_gain_132_132") 'added m.r
+            
+    gainvlt(12) = Data.Recordset.Fields("Voltage_gain_230_10") 'added m.r
+    gainvlt(13) = Data.Recordset.Fields("Voltage_gain_230_115") 'added m.r
+    gainvlt(14) = Data.Recordset.Fields("Voltage_gain_230_230") 'added m.r
+            
+    gainvlt(15) = Data.Recordset.Fields("Voltage_gain_400_10") 'added m.r
+    gainvlt(16) = Data.Recordset.Fields("Voltage_gain_400_200") 'added m.r
+    gainvlt(17) = Data.Recordset.Fields("Voltage_gain_400_400") 'added m.r
+    
 gaincrt(0) = Data.Recordset.Fields("Current_gain_0_1")
 gaincrt(1) = Data.Recordset.Fields("Current_gain_0_15")
 gaincrt(2) = Data.Recordset.Fields("Current_gain_0_2")
@@ -2411,6 +2596,51 @@ cmbcon.Enabled = True
     cmbcon_Click
     LBLVOLT.Caption = " VOLTAGE ="
     lbl0.Caption = "[kv]"
+ElseIf opt(7).Value = True Then ' VOLTAGE 0_ 132 KV m.r added
+cmbcon.Enabled = True
+    With cmbvlt
+        .Clear
+        .AddItem "10 KV", 0
+        .AddItem "66 KV", 1
+        .AddItem "132 KV", 2
+        .ListIndex = 0
+    End With
+    cmbcrt.Enabled = False
+    cmbvlt.Enabled = True
+    cmbcon.ListIndex = 0
+    cmbcon_Click
+    LBLVOLT.Caption = " VOLTAGE ="
+    lbl0.Caption = "[kv]"
+ElseIf opt(8).Value = True Then ' VOLTAGE 0_230 KV m.r added
+cmbcon.Enabled = True
+    With cmbvlt
+        .Clear
+        .AddItem "10 KV", 0
+        .AddItem "115 KV", 1
+        .AddItem "230 KV", 2
+        .ListIndex = 0
+    End With
+    cmbcrt.Enabled = False
+    cmbvlt.Enabled = True
+    cmbcon.ListIndex = 0
+    cmbcon_Click
+    LBLVOLT.Caption = " VOLTAGE ="
+    lbl0.Caption = "[kv]"
+ElseIf opt(9).Value = True Then ' VOLTAGE 0_400 KV m.r added
+cmbcon.Enabled = True
+    With cmbvlt
+        .Clear
+        .AddItem "10 KV", 0
+        .AddItem "200 KV", 1
+        .AddItem "400 KV", 2
+        .ListIndex = 0
+    End With
+    cmbcrt.Enabled = False
+    cmbvlt.Enabled = True
+    cmbcon.ListIndex = 0
+    cmbcon_Click
+    LBLVOLT.Caption = " VOLTAGE ="
+    lbl0.Caption = "[kv]"
 ElseIf opt(3).Value = True Then    ' PD 0-2 Pc
     cmbcon.ListIndex = 1
     cmbcon.Enabled = False
@@ -2481,7 +2711,7 @@ Private Sub optc_Click(Index As Integer)
     'End If
     't1.Enabled = False
 'End If
-If optc(0).Value = True Or optc(1).Value = True Or optc(2).Value = True Then
+If optc(0).Value = True Or optc(1).Value = True Or optc(2).Value = True Or optc(7).Value = True Or optc(8).Value = True Or optc(9).Value = True Then
     cmbcon.Enabled = True
     cmbcon.ListIndex = 0
     cmbcon_Click
@@ -2560,10 +2790,10 @@ If Tab0.Tab = 0 Then
     SLD.Enabled = True
     CMDSET.Enabled = True
     fram1.Visible = True
-    For i = 0 To 6
+    For i = 0 To 9
         optc(i).Visible = False
     Next i
-    For i = 0 To 6
+    For i = 0 To 9
         opt(i).Visible = True
     Next i
     opt(0).Value = True
@@ -2576,10 +2806,10 @@ Else
     CMDSET.Enabled = False
     fram1.Visible = False
     
-    For i = 0 To 6
+    For i = 0 To 9
         optc(i).Visible = True
     Next i
-    For i = 0 To 6
+    For i = 0 To 9
         opt(i).Visible = False
     Next i
     optc(0).Value = True

@@ -43,7 +43,9 @@ Begin VB.Form frmmain
          Strikethrough   =   0   'False
       EndProperty
       Height          =   345
+      ItemData        =   "Addserno.frx":0000
       Left            =   4440
+      List            =   "Addserno.frx":0002
       TabIndex        =   23
       Text            =   "210200"
       Top             =   8280
@@ -901,9 +903,9 @@ Begin VB.Form frmmain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   375
-         Left            =   0
+         Left            =   15
          TabIndex        =   45
-         Top             =   840
+         Top             =   735
          Width           =   735
       End
       Begin VB.Label lblic 
@@ -952,7 +954,7 @@ Begin VB.Form frmmain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   375
-         Left            =   120
+         Left            =   75
          TabIndex        =   42
          Top             =   1320
          Width           =   615
@@ -1759,16 +1761,16 @@ Private Sub ApplySerialNumber()
 SerialIsOK = False
 
 If allow = True Then
-  With frmmain.dataarrtype
+  With frmmain.DataArrtype
       .RecordSource = "production"
       .Refresh
       If .Recordset.RecordCount > 0 Then
           .Recordset.MoveFirst
-          .Recordset.Find "OrderNo=" + frmmain.txtorderno, , adSearchForward, 1
+          .Recordset.Find "OrderNo=" + frmmain.txtorderNo, , adSearchForward, 1
           If .Recordset.EOF = False Then
               MsgBox "Enterred order number is repetitive. You are not allowed to register repetitive order number?", vbYesNo, "Œÿ«Ì ‘„«—Â »—‰«„Â  ò—«—Ì"
               allow = False
-              txtorderno.SetFocus
+              txtorderNo.SetFocus
           End If
       End If
   End With
@@ -1796,11 +1798,11 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
     mdl1.ilaccp = Val(frmmain.txticaccp.Text)
     mdl1.urt = Val(frmmain.txtUr1.Text)
     mdl1.unitnumber = Val(frmmain.CmdNofloor.Text)
-    mdl1.ordernum = Val(txtorderno.Text)
+    mdl1.ordernum = Val(txtorderNo.Text)
     mdl1.Acpt_PD = Val(txtPDMax.Text)
     
     mdl1.sncode = SerialCode(cmbarr1.ListIndex)
-    mdl1.ArresterType = cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(TxtCode.Text)
+    mdl1.ArresterType = cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(txtcode.Text)
     
     mdl1.CompleteTavanirCode = (mdl1.GLNCode * 10 ^ 10) + (AllGTINCodes(CmbPrdcCode.ListIndex) * 10 ^ 4) + Format(mdl1.year, "##") * 100 + Format(CmbMonth.ListIndex + 1, "##")
     
@@ -1880,11 +1882,11 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
      '  Serial Number Coding of Distribution Class =  Year ## + Arresterv Code # +  Exclusive Number (5 digit)  ##### as following
      ' For ETM & ETI the last 5 digit for Exclusive Numberis is as following :
      
-     'if ETM-25-H10B or "ETI-25-R10" : SR = [00110 up to 29999] total number is 29890 pieces
-     'if ETM1-25-DH1-B2 or "ETI1-25-DH1-R2" : SR = [30110 up to 69999] total number is 39890 pieces
+     'if ETM-25-H-10-B or "ETI-25-R-10" : SR = [00110 up to 29999] total number is 29890 pieces
+     'if ETM-25-DH-B1 or "ETI-25-DH-R1" : SR = [30110 up to 69999] total number is 39890 pieces
      
-     'if ETM-36-K10B or "ETI-36-R10" : SR = [70110 up to 79999] total number is  9890 pieces
-     'if ETM1-36-DH1-B3 or "ETI1-36-DH1-R3" : SR = [80110 up to 89999] total number is  9890 pieces
+     'if ETM-36-K-10-B or "ETI-36-R-10" : SR = [70110 up to 79999] total number is  9890 pieces
+     'if ETM-36-DH-B1 or "ETI-36-DH-R1" : SR = [80110 up to 89999] total number is  9890 pieces
     
      'if Else type  : SR = [90110 up to 99999] total number is 9890 pieces
      
@@ -1898,15 +1900,15 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
         With Data1.Recordset
             strsn = Str(mdl1.year) + Right(Str(mdl1.sncode), 1) ' the first 3 digits of serial Number
             
-            If mdl1.ArresterType = "ETM-25-H10B" Or mdl1.ArresterType = "ETI-25-R10" Then
+            If mdl1.ArresterType = "ETM-25-H-10-B" Or mdl1.ArresterType = "ETI-25-R-10" Then
                 maxsn = Val(strsn + "00109") '  The first Serial Number for 25 KV is ###00110 [YA ALI]
-            ElseIf mdl1.ArresterType = "ETM1-25-DH1-B2" Or mdl1.ArresterType = "ETI1-25-DH1-R2" Then
+            ElseIf mdl1.ArresterType = "ETM-25-DH-B1" Or mdl1.ArresterType = "ETI-25-DH-R1" Then
                 maxsn = Val(strsn + "30109") '  The first Serial Number for 25 KV is ###20110 [YA ALI]
                 
-            ElseIf mdl1.ArresterType = "ETM-36-K10B" Or mdl1.ArresterType = "ETI-36-R10" Then
+            ElseIf mdl1.ArresterType = "ETM-36-K-10-B" Or mdl1.ArresterType = "ETI-36-R-10" Then
                 maxsn = Val(strsn + "70109") '  The first Serial Number for 36 KV is ###70110 [YA ALI]
             
-            ElseIf mdl1.ArresterType = "ETM1-36-DH1-B3" Or mdl1.ArresterType = "ETI1-36-DH1-R3" Then
+            ElseIf mdl1.ArresterType = "ETM-36-DH-B1" Or mdl1.ArresterType = "ETI-36-DH-R1" Then
                 maxsn = Val(strsn + "80109") '  The first Serial Number for 36 KV is ###80110 [YA ALI]
             
             Else
@@ -1928,7 +1930,7 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
                     If (.Fields("Serial_Num") - (.Fields("Serial_Num") Mod 100000)) / 100000 = Val(strsn) Then ' is the same Arrester Type?
                         
                         
-                        If mdl1.ArresterType = "ETM-25-H10B" Or mdl1.ArresterType = "ETI-25-R10" Then  ' SN =  [00110 up to 30109]
+                        If mdl1.ArresterType = "ETM-25-H-10-B" Or mdl1.ArresterType = "ETI-25-R-10" Then  ' SN =  [00110 up to 30109]
                         
                             If Val(Right(Str(.Fields("Serial_Num")), 5)) > Val(Right(Str(maxsn), 5)) And Val(Right(Str(.Fields("Serial_Num")), 5)) >= 109 And Val(Right(Str(.Fields("Serial_Num")), 5)) < 30109 Then ' IMP :20109 ' is biger serial Number?
                                 maxsn = .Fields("Serial_Num") ' in the last step, maxsn will be tha last registered Serial No. of arrester type
@@ -1936,7 +1938,7 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
                             End If
                         
                         
-                        ElseIf mdl1.ArresterType = "ETM1-25-DH1-B2" Or mdl1.ArresterType = "ETI1-25-DH1-R2" Then ' SN =  [30110 up to 69999]
+                        ElseIf mdl1.ArresterType = "ETM-25-DH-B1" Or mdl1.ArresterType = "ETI-25-DH-R1" Then ' SN =  [30110 up to 69999]
                         
                             If Val(Right(Str(.Fields("Serial_Num")), 5)) > Val(Right(Str(maxsn), 5)) And Val(Right(Str(.Fields("Serial_Num")), 5)) >= 30109 And Val(Right(Str(.Fields("Serial_Num")), 5)) < 69999 Then ' is biger serial Number?
                                 maxsn = .Fields("Serial_Num") ' in the last step, maxsn will be tha last registered Serial No. of arrester type
@@ -1944,14 +1946,14 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
                             End If
                         
                         
-                        ElseIf mdl1.ArresterType = "ETM-36-K10B" Or mdl1.ArresterType = "ETI-36-R10" Then  ' SN= [70110 up to 79999]
+                        ElseIf mdl1.ArresterType = "ETM-36-K-10-B" Or mdl1.ArresterType = "ETI-36-R-10" Then  ' SN= [70110 up to 79999]
                             
                             If Val(Right(Str(.Fields("Serial_Num")), 5)) > Val(Right(Str(maxsn), 5)) And Val(Right(Str(.Fields("Serial_Num")), 5)) >= 70109 And Val(Right(Str(.Fields("Serial_Num")), 5)) < 79999 Then ' is biger serial Number?
                                 maxsn = .Fields("Serial_Num") ' in the last step, maxsn will be tha last registered Serial No. of arrester type
                                 sn1 = Val(Right(Str(maxsn), 5)) ' the last exclusive serial Number
                             End If
                             
-                       ElseIf mdl1.ArresterType = "ETM1-36-DH1-B3" Or mdl1.ArresterType = "ETI1-36-DH1-R3" Then ' SN =  [80110 up to 89999]
+                       ElseIf mdl1.ArresterType = "ETM-36-DH-B1" Or mdl1.ArresterType = "ETI-36-DH-R1" Then ' SN =  [80110 up to 89999]
                         
                             If Val(Right(Str(.Fields("Serial_Num")), 5)) > Val(Right(Str(maxsn), 5)) And Val(Right(Str(.Fields("Serial_Num")), 5)) >= 80109 And Val(Right(Str(.Fields("Serial_Num")), 5)) < 89999 Then ' is biger serial Number?
                                 maxsn = .Fields("Serial_Num") ' in the last step, maxsn will be tha last registered Serial No. of arrester type
@@ -1978,14 +1980,14 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
             For i = 1 To Val(TXTARRNO.Text)
             
                 
-                If mdl1.ArresterType = "ETM-25-H10B" Or mdl1.ArresterType = "ETI-25-R10" Then
+                If mdl1.ArresterType = "ETM-25-H-10-B" Or mdl1.ArresterType = "ETI-25-R-10" Then
                     If sn1 + i = 30109 Then  ' IMP :20109
                         MsgBox "You can not allocate serial number for all entered quantity of arresters." + Chr(13) + " Serial number will be overflowed." + Chr(13) + "You can only add " + Str(i - 1) + " arrester(s).", vbExclamation, "Attention, Serial Number Overflow"
                         maxarrnum = i - 1
                         Exit For
                     End If
                     
-               ElseIf mdl1.ArresterType = "ETM1-25-DH1-B2" Or mdl1.ArresterType = "ETI1-25-DH1-R2" Then
+               ElseIf mdl1.ArresterType = "ETM-25-DH-B1" Or mdl1.ArresterType = "ETI-25-DH-R1" Then
                     If sn1 + i = 69999 Then
                         MsgBox "You can not allocate serial number for all entered quantity of arresters." + Chr(13) + " Serial number will be overflowed." + Chr(13) + "You can only add " + Str(i - 1) + " arrester(s).", vbExclamation, "Attention, Serial Number Overflow"
                         maxarrnum = i - 1
@@ -1993,14 +1995,14 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
                     End If
                 
                 
-                ElseIf mdl1.ArresterType = "ETM-36-K10B" Or mdl1.ArresterType = "ETI-36-R10" Then
+                ElseIf mdl1.ArresterType = "ETM-36-K-10-B" Or mdl1.ArresterType = "ETI-36-R-10" Then
                     If sn1 + i = 79999 Then
                         MsgBox "You can not allocate serial number for all entered quantity of arresters." + Chr(13) + " Serial number will be overflowed." + Chr(13) + "You can only add " + Str(i - 1) + " arrester(s).", vbExclamation, "Attention, Serial Number Overflow"
                         maxarrnum = i - 1
                         Exit For
                     End If
                     
-                 ElseIf mdl1.ArresterType = "ETM1-36-DH1-B3" Or mdl1.ArresterType = "ETI1-36-DH1-R3" Then
+                 ElseIf mdl1.ArresterType = "ETM-36-DH-B1" Or mdl1.ArresterType = "ETI-36-DH-R1" Then
                     If sn1 + i = 89999 Then
                         MsgBox "You can not allocate serial number for all entered quantity of arresters." + Chr(13) + " Serial number will be overflowed." + Chr(13) + "You can only add " + Str(i - 1) + " arrester(s).", vbExclamation, "Attention, Serial Number Overflow"
                         maxarrnum = i - 1
@@ -2046,7 +2048,7 @@ If allow = True And Tabletype(cmbarr1.ListIndex) <> "CNT" Then  ' Just for arres
 
 ElseIf allow = True And Tabletype(cmbarr1.ListIndex) = "CNT" Then  '  for Counter
 
-    mdl1.ordernum = Val(txtorderno.Text)
+    mdl1.ordernum = Val(txtorderNo.Text)
     mdl1.sncode = SerialCode(cmbarr1.ListIndex)
     mdl1.ArresterType = cmbarr1.Text
     Data1.RecordSource = "CNT"
@@ -2141,10 +2143,10 @@ If Tabletype(cmbarr1.ListIndex) = "CNT" Then  ' Counter
         TXTARRNO.SetFocus
     End If
     
-    If (txtorderno.Text = "" Or txtorderno.Text = " " Or Val(txtorderno.Text) = 0) And allow = True Then
+    If (txtorderNo.Text = "" Or txtorderNo.Text = " " Or Val(txtorderNo.Text) = 0) And allow = True Then
         allow = False
         rtv = MsgBox("Enter Order Number Of Current Batch", vbOKOnly + vbExclamation, "ERROR")
-       txtorderno.SetFocus
+       txtorderNo.SetFocus
     End If
     If (txtcustomer.Text = " " Or txtcustomer.Text = "") And allow = True Then
         allow = False
@@ -2189,11 +2191,11 @@ Else  ' Arrester
         txtUr1.Text = ""
         txtUr1.SetFocus
     End If
-    If (TxtCode.Text = " " Or TxtCode.Text = "") And allow = True Then
+    If (txtcode.Text = " " Or txtcode.Text = "") And allow = True Then
         allow = False
         rtv = MsgBox("Insert Currect Value For Arrester Type", vbOKOnly + vbExclamation, "ERROR")
-        TxtCode.Text = ""
-        TxtCode.SetFocus
+        txtcode.Text = ""
+        txtcode.SetFocus
     End If
     
     If (txtcustomer.Text = " " Or txtcustomer.Text = "") And allow = True Then
@@ -2318,10 +2320,10 @@ Else  ' Arrester
         rtv = MsgBox("Insert Quantity of Arresters for Current Order", vbOKOnly + vbExclamation, "ERROR")
         TXTARRNO.SetFocus
     End If
-    If (txtorderno.Text = "" Or txtorderno.Text = " " Or Val(txtorderno.Text) = 0) And allow = True Then
+    If (txtorderNo.Text = "" Or txtorderNo.Text = " " Or Val(txtorderNo.Text) = 0) And allow = True Then
         allow = False
         rtv = MsgBox("Insert Order Number Of Current Batch", vbOKOnly + vbExclamation, "ERROR")
-       txtorderno.SetFocus
+       txtorderNo.SetFocus
     End If
 
 
@@ -2379,129 +2381,177 @@ With CmbArrModel
     If cmbarr1.Text = "ETM" Then
         .Enabled = True
         .Clear
-        .AddItem "ETM-25-H10B", 0
-        .AddItem "ETM-36-K10B", 1
-        .AddItem "Other types", 2
-        .ListIndex = 0
-        txtUr1.Text = ""
-        TxtCode.Text = ""
+        .AddItem "ETM-25-H-10-B", 0
+        .AddItem "ETM-36-K-10-B", 1
+        '.AddItem "Other types", 2
+        '.ListIndex = 0
+        'txtUr1.Text = ""
+        'txtcode.Text = ""
         
-    ElseIf cmbarr1.Text = "ETM1" Then
-        .Enabled = True
-        .Clear
-        .AddItem "ETM1-25-DH1-B2", 0
-        .AddItem "ETM1-36-DH1-B3", 1
-        .AddItem "Other types", 2
+    'ElseIf cmbarr1.Text = "ETM1" Then
+        '.Enabled = True
+        '.Clear
+        .AddItem "ETM-25-DH-B1", 2
+        .AddItem "ETM-36-DH-B1", 3
+        .AddItem "Other types", 4
         .ListIndex = 0
         txtUr1.Text = ""
-        TxtCode.Text = ""
+        txtcode.Text = ""
+        txtPDMax.Text = 2
         
     ElseIf cmbarr1.Text = "ETI" Then
         .Enabled = True
         .Clear
-        .AddItem "ETI-25-R10", 0
-        .AddItem "ETI-36-R10", 1
-        .AddItem "Other types", 2
+        .AddItem "ETI-25-R-10", 0
+        .AddItem "ETI-36-R-10", 1
+        '.AddItem "Other types", 2
+        ''.ListIndex = 0
+        'txtUr1.Text = ""
+        'txtcode.Text = ""
+   ' ElseIf cmbarr1.Text = "ETI1" Then
+        '.Enabled = True
+        '.Clear
+        .AddItem "ETI-25-DH-R1", 2
+        .AddItem "ETI-36-DH-R1", 3
+        .AddItem "Other types", 4
         .ListIndex = 0
         txtUr1.Text = ""
-        TxtCode.Text = ""
-    ElseIf cmbarr1.Text = "ETI1" Then
+        txtcode.Text = ""
+        txtPDMax.Text = 2
+    ElseIf cmbarr1.Text = "ETH" Then
         .Enabled = True
         .Clear
-        .AddItem "ETI1-25-DH1-R2", 0
-        .AddItem "ETI1-36-DH1-R3", 1
-        .AddItem "Other types", 2
+        .AddItem "ETH-60-SM-BP1", 0
+        .AddItem "ETH-75-SM-BP1", 1
+        .AddItem "ETH-120-SM-BP1", 2
+        .AddItem "ETH-120-SH-BP1", 3
+        .AddItem "ETH-198-SH-BP1", 4
+        .AddItem "ETH-360-SH-BP1", 5
+        .AddItem "Other types", 6
         .ListIndex = 0
         txtUr1.Text = ""
-        TxtCode.Text = ""
+        txtcode.Text = ""
+        txtPDMax.Text = 5
         
     Else
         CmbArrModel.ListIndex = 2
         .Enabled = False
         txtUr1.Text = ""
-        TxtCode.Text = ""
+        txtcode.Text = ""
+        txtPDMax.Text = 2
     End If
     
 End With
 
  Select Case CmbArrModel.Text
     
-    Case "ETM-25-H10B"
+    Case "ETM-25-H-10-B"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "H10B"
-       TxtCode.Enabled = False
+       txtcode.Text = "H-10-B"
+       txtcode.Enabled = False
          
-   Case "ETM1-25-DH1-B2"
+   Case "ETM-25-DH-B1"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-B2"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-B1"
+       txtcode.Enabled = False
          
-   Case "ETM-36-K10B"
+   Case "ETM-36-K-10-B"
    
       txtUr1.Text = "36"
       txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
       txtUr1.Enabled = False
-      TxtCode.Text = "K10B"
-      TxtCode.Enabled = False
+      txtcode.Text = "K-10-B"
+      txtcode.Enabled = False
       
-   Case "ETM1-36-DH1-B3"
+   Case "ETM-36-DH-B1"
        
        txtUr1.Text = "36"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-B3"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-B1"
+       txtcode.Enabled = False
    
-   Case "ETI-25-R10"
+   Case "ETI-25-R-10"
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "R10"
-       TxtCode.Enabled = False
+       txtcode.Text = "R-10"
+       txtcode.Enabled = False
     
-   Case "ETI1-25-DH1-R2"
+   Case "ETI-25-DH-R1"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-R2"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-R1"
+       txtcode.Enabled = False
     
-   Case "ETI-36-R10"
+   Case "ETI-36-R-10"
       txtUr1.Text = "36"
       txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
       txtUr1.Enabled = False
-      TxtCode.Text = "R10"
-      TxtCode.Enabled = False
+      txtcode.Text = "R-10"
+      txtcode.Enabled = False
       
-  Case "ETI1-36-DH1-R3"
+  Case "ETI-36-DH-R1"
        
        txtUr1.Text = "36"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-R3"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-R1"
+       txtcode.Enabled = False
+       
+         Case "ETH-60-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "60"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-75-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "75"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-120-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "120"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-120-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "120"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-198-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "198"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-360-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "360"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+        
       
    Case "Other types"
    
       txtUr1.Text = ""
       txtuc.Text = ""
       txtUr1.Enabled = True
-      TxtCode.Text = ""
-      TxtCode.Enabled = True
+      txtcode.Text = ""
+      txtcode.Enabled = True
     
    End Select
    
 If Tabletype(cmbarr1.ListIndex) = "CNT" Then
   lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text
 Else
-  lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(TxtCode.Text)
+  lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(txtcode.Text)
 End If
 
 End Sub
@@ -2551,122 +2601,168 @@ With CmbArrModel
     If cmbarr1.Text = "ETM" Then
         .Enabled = True
         .Clear
-        .AddItem "ETM-25-H10B", 0
-        .AddItem "ETM-36-K10B", 1
-        .AddItem "Other types", 2
-        .ListIndex = 0
-        txtUr1.Text = ""
-        TxtCode.Text = ""
+        .AddItem "ETM-25-H-10-B", 0
+        .AddItem "ETM-36-K-10-B", 1
+        '.AddItem "Other types", 2
+        '.ListIndex = 0
+        'txtUr1.Text = ""
+       ' txtcode.Text = ""
         
-    ElseIf cmbarr1.Text = "ETM1" Then
-        .Enabled = True
-        .Clear
-        .AddItem "ETM1-25-DH1-B2", 0
-        .AddItem "ETM1-36-DH1-B3", 1
-        .AddItem "Other types", 2
+   ' ElseIf cmbarr1.Text = "ETM1" Then
+        '.Enabled = True
+        '.Clear
+        .AddItem "ETM-25-DH-B1", 2
+        .AddItem "ETM-36-DH-B1", 3
+        .AddItem "Other types", 4
         .ListIndex = 0
         txtUr1.Text = ""
-        TxtCode.Text = ""
+        txtcode.Text = ""
+        txtPDMax.Text = 2
         
     ElseIf cmbarr1.Text = "ETI" Then
         .Enabled = True
         .Clear
-        .AddItem "ETI-25-R10", 0
-        .AddItem "ETI-36-R10", 1
-        .AddItem "Other types", 2
+        .AddItem "ETI-25-R-10", 0
+        .AddItem "ETI-36-R-10", 1
+        '.AddItem "Other types", 2
+        '.ListIndex = 0
+        'txtUr1.Text = ""
+        'txtcode.Text = ""
+   ' ElseIf cmbarr1.Text = "ETI1" Then
+       ' .Enabled = True
+       ' .Clear
+        .AddItem "ETI-25-DH-R1", 2
+        .AddItem "ETI-36-DH-R1", 3
+        .AddItem "Other types", 4
         .ListIndex = 0
         txtUr1.Text = ""
-        TxtCode.Text = ""
-    ElseIf cmbarr1.Text = "ETI1" Then
+        txtcode.Text = ""
+        txtPDMax.Text = 2
+     ElseIf cmbarr1.Text = "ETH" Then
         .Enabled = True
         .Clear
-        .AddItem "ETI1-25-DH1-R2", 0
-        .AddItem "ETI1-36-DH1-R3", 1
-        .AddItem "Other types", 2
+        .AddItem "ETH-60-SM-BP1", 0
+        .AddItem "ETH-75-SM-BP1", 1
+        .AddItem "ETH-120-SM-BP1", 2
+        .AddItem "ETH-120-SH-BP1", 3
+        .AddItem "ETH-198-SH-BP1", 4
+        .AddItem "ETH-360-SH-BP1", 5
+        .AddItem "Other types", 6
         .ListIndex = 0
         txtUr1.Text = ""
-        TxtCode.Text = ""
-        
+        txtcode.Text = ""
+        txtPDMax.Text = 5
     Else
         CmbArrModel.ListIndex = 2
         .Enabled = False
         txtUr1.Text = ""
-        TxtCode.Text = ""
+        txtcode.Text = ""
+        txtPDMax.Text = 2
     End If
     
 End With
 
  Select Case CmbArrModel.Text
     
-    Case "ETM-25-H10B"
+    Case "ETM-25-H-10-B"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "H10B"
-       TxtCode.Enabled = False
+       txtcode.Text = "H-10-B"
+       txtcode.Enabled = False
          
-   Case "ETM1-25-DH1-B2"
+   Case "ETM-25-DH-B1"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-B2"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-B1"
+       txtcode.Enabled = False
          
-   Case "ETM-36-K10B"
+   Case "ETM-36-K-10-B"
    
       txtUr1.Text = "36"
       txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
       txtUr1.Enabled = False
-      TxtCode.Text = "K10B"
-      TxtCode.Enabled = False
+      txtcode.Text = "K-10-B"
+      txtcode.Enabled = False
       
-   Case "ETM1-36-DH1-B3"
+   Case "ETM-36-DH-B1"
        
        txtUr1.Text = "36"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-B3"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-B1"
+       txtcode.Enabled = False
    
-   Case "ETI-25-R10"
+   Case "ETI-25-R-10"
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "R10"
-       TxtCode.Enabled = False
+       txtcode.Text = "R-10"
+       txtcode.Enabled = False
     
-   Case "ETI1-25-DH1-R2"
+   Case "ETI-25-DH-R1"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-R2"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-R1"
+       txtcode.Enabled = False
     
-   Case "ETI-36-R10"
+   Case "ETI-36-R-10"
       txtUr1.Text = "36"
       txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
       txtUr1.Enabled = False
-      TxtCode.Text = "R10"
-      TxtCode.Enabled = False
+      txtcode.Text = "R-10"
+      txtcode.Enabled = False
       
-  Case "ETI1-36-DH1-R3"
+  Case "ETI-36-DH-R1"
        
        txtUr1.Text = "36"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-R3"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-R1"
+       txtcode.Enabled = False
       
+        Case "ETH-60-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "60"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-75-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "75"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-120-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "120"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-120-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "120"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-198-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "198"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+        Case "ETH-360-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "360"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+        
    Case "Other types"
    
       txtUr1.Text = ""
       txtuc.Text = ""
       txtUr1.Enabled = True
-      TxtCode.Text = ""
-      TxtCode.Enabled = True
+      txtcode.Text = ""
+      txtcode.Enabled = True
     
    End Select
 
@@ -2675,7 +2771,7 @@ If Tabletype(cmbarr1.ListIndex) = "CNT" Then
   txtUr1.Enabled = False
 Else
   txtUr1.Enabled = True
-  lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(TxtCode.Text)
+  lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(txtcode.Text)
 End If
 
 
@@ -2697,75 +2793,104 @@ Private Sub CmbArrModel_Click()
 
    Select Case CmbArrModel.Text
     
-    Case "ETM-25-H10B"
+    Case "ETM-25-H-10-B"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "H10B"
-       TxtCode.Enabled = False
+       txtcode.Text = "H-10-B"
+       txtcode.Enabled = False
          
-   Case "ETM1-25-DH1-B2"
+   Case "ETM-25-DH-B1"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-B2"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-B1"
+       txtcode.Enabled = False
          
-   Case "ETM-36-K10B"
+   Case "ETM-36-K-10-B"
    
       txtUr1.Text = "36"
       txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
       txtUr1.Enabled = False
-      TxtCode.Text = "K10B"
-      TxtCode.Enabled = False
+      txtcode.Text = "K-10-B"
+      txtcode.Enabled = False
       
-   Case "ETM1-36-DH1-B3"
+   Case "ETM-36-DH-B1"
        
        txtUr1.Text = "36"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-B3"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-B1"
+       txtcode.Enabled = False
    
-   Case "ETI-25-R10"
+   Case "ETI-25-R-10"
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "R10"
-       TxtCode.Enabled = False
+       txtcode.Text = "R-10"
+       txtcode.Enabled = False
     
-   Case "ETI1-25-DH1-R2"
+   Case "ETI-25-DH-R1"
        
        txtUr1.Text = "25"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-R2"
-       TxtCode.Enabled = False
+       txtcode.Text = "DH-R1"
+       txtcode.Enabled = False
     
-   Case "ETI-36-R10"
+   Case "ETI-36-R-10"
       txtUr1.Text = "36"
       txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
       txtUr1.Enabled = False
-      TxtCode.Text = "R10"
-      TxtCode.Enabled = False
+      txtcode.Text = "R-10"
+      txtcode.Enabled = False
       
-  Case "ETI1-36-DH1-R3"
+  Case "ETI-36-DH-R1"
        
        txtUr1.Text = "36"
        txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
        txtUr1.Enabled = False
-       TxtCode.Text = "DH1-R3"
-       TxtCode.Enabled = False
-      
+       txtcode.Text = "DH-R1"
+       txtcode.Enabled = False
+    Case "ETH-60-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "60"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+    Case "ETH-75-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "75"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+    Case "ETH-120-SM-BP1"
+          txtcode.Text = "SM-BP1"
+          txtUr1.Text = "120"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+    Case "ETH-120-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "120"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+    Case "ETH-198-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "198"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+          
+    Case "ETH-360-SH-BP1"
+          txtcode.Text = "SH-BP1"
+          txtUr1.Text = "360"
+          txtuc.Text = Str(Round(Val(txtUr1.Text) * 0.8, 1))
+        
    Case "Other types"
    
       txtUr1.Text = ""
       txtuc.Text = ""
       txtUr1.Enabled = True
-      TxtCode.Text = ""
-      TxtCode.Enabled = True
+      txtcode.Text = ""
+      txtcode.Enabled = True
     
    End Select
     
@@ -3106,18 +3231,18 @@ Call ApplySerialNumber
 
 If SerialIsOK Then
   cmdapply.Enabled = False
-  cmdok.SetFocus
+  CMDOK.SetFocus
 End If
 
 frmmain.MousePointer = 0
 End Sub
 
 Private Sub CMDCANCEL_Click()
-dataarrtype.Refresh
+DataArrtype.Refresh
 Data1.Refresh
 datablock.Refresh
 
-dataarrtype.Recordset.Close
+DataArrtype.Recordset.Close
 Data1.Recordset.Close
 datablock.Recordset.Close
 
@@ -3198,9 +3323,9 @@ txturefn.Text = ""
 txturesx.Text = ""
 txturesn.Text = ""
 TXTARRNO.Text = ""
-txtorderno.Text = ""
+txtorderNo.Text = ""
 txtUr1.Text = ""
-TxtCode.Text = ""
+txtcode.Text = ""
 CmdNofloor.ListIndex = 0
 txtcustomer.Text = ""
 Call cmbarr1_Click
@@ -3276,7 +3401,7 @@ With datablock
 End With
 
 
-With dataarrtype
+With DataArrtype
     .ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + mdl1.acldb + ";Jet OLEDB:Database Password=" + mdl1.AclDBPas
     .CommandType = adCmdTable
     .RecordSource = "Type"
@@ -3320,9 +3445,9 @@ CmbGLN.ListIndex = 0
 frmmain.icon = LoadPicture(mdl1.icon)
 cmbarr1.Clear
 cnt = 0
-With dataarrtype
+With DataArrtype
     .Recordset.MoveFirst
-    Do While dataarrtype.Recordset.EOF = False
+    Do While DataArrtype.Recordset.EOF = False
         typestr = Mid(.Recordset.Fields("Arr_Type"), 1, 3) 'Arrester Type
         cmbarr1.AddItem .Recordset.Fields("Arr_Type"), cnt
         Tabletype(cnt) = .Recordset.Fields("TableName")
@@ -3337,9 +3462,9 @@ End With
 
 With CmbArrModel
   .Clear
-  .AddItem "ETM-25-H10B", 0
+  .AddItem "ETM-25-H-10-B", 0
   
-  .AddItem "ETM-36-K10B", 1
+  .AddItem "ETM-36-K-10-B", 1
   
   .AddItem "Other types", 2
   .ListIndex = 0
@@ -3454,14 +3579,14 @@ With cmdapply
     .Top = framblock.Height + framblock.Top * 1.05
 End With
 
-With cmdok
+With CMDOK
     .Left = framblock.Left + framblock.Width * 0.4
     .Width = cmdapply.Width
     .Height = hei * 0.05
     .Top = cmdapply.Top
 End With
 
-With cmdcancel
+With CMDCANCEL
     .Left = framblock.Left + framblock.Width * 0.7
     .Width = cmdapply.Width
     .Height = hei * 0.05
@@ -3510,7 +3635,7 @@ With lblcode
     .Width = lblarr1.Width * 1.2
     .Height = lblarr1.Height
 End With
-With TxtCode
+With txtcode
     .Height = cmbarr1.Height
     .Top = cmbarr1.Top
     .Width = frwi * 0.12
@@ -3531,22 +3656,22 @@ With TXTARRNO
     .Top = cmbarr1.Top
 End With
 
-With lblorderno
+With lblOrderNo
     .Left = LBLARRNO.Left + LBLARRNO.Width + frwi * 0.03
     .Width = lblcode.Width
     .Height = lblarr1.Height
     .Top = lblarr1.Top
 End With
 
-With txtorderno
-    .Left = lblorderno.Left
+With txtorderNo
+    .Left = lblOrderNo.Left
     .Width = lblcode.Width
     .Height = cmbarr1.Height
     .Top = cmbarr1.Top
 End With
 
 With lblcustomer
-    .Left = lblorderno.Left + lblorderno.Width + frwi * 0.03
+    .Left = lblOrderNo.Left + lblOrderNo.Width + frwi * 0.03
     .Width = lblcode.Width
     .Height = lblarr1.Height
     .Top = lblarr1.Top
@@ -3562,16 +3687,16 @@ End With
 
 
 With framHV
-    .Left = TxtCode.Left
-    .Width = txtorderno.Width + TXTARRNO.Width + (txtorderno.Left - TXTARRNO.Left - TXTARRNO.Width)
+    .Left = txtcode.Left
+    .Width = txtorderNo.Width + TXTARRNO.Width + (txtorderNo.Left - TXTARRNO.Left - TXTARRNO.Width)
     .Height = frhe * 0.5
     .Top = CmbArrModel.Top
     .Enabled = False
 End With
 
 With framCNT
-    .Left = txtorderno.Left
-    .Width = txtorderno.Width + txtcustomer.Width + (txtcustomer.Left - txtorderno.Left - txtorderno.Width)
+    .Left = txtorderNo.Left
+    .Width = txtorderNo.Width + txtcustomer.Width + (txtcustomer.Left - txtorderNo.Left - txtorderNo.Width)
     .Height = frhe * 0.5
     .Top = framHV.Top
     .Enabled = False
@@ -3643,7 +3768,7 @@ With LBLMan
     .Caption = "Manufacturer"
 End With
 
-With LblModel
+With lblmodel
     .Left = wb * 0.67
     .Width = wb * 0.2
     .Height = hb * 0.1
@@ -4007,7 +4132,7 @@ End Sub
 
 Private Sub txtUr1_Change()
 
-lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(TxtCode.Text)
+lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(txtcode.Text)
 lbltool2.Caption = "New Serial Number: #########" + " To: #########"
 End Sub
 
@@ -4021,7 +4146,7 @@ End If
 KeyAscii = mdl1.inputtest(KeyAscii)
 
 If KeyAscii = 13 Then
-   TxtCode.SetFocus
+   txtcode.SetFocus
 End If
 
 End Sub
@@ -4032,7 +4157,7 @@ KeyAscii = mdl1.inputtest(KeyAscii)
 cmdapply.Enabled = True
 lbltool2.Caption = "New Serial Number: #########" + " To: #########"
 If KeyAscii = 13 Then
-   txtorderno.SetFocus
+   txtorderNo.SetFocus
 End If
 
 End Sub
@@ -4040,7 +4165,7 @@ End Sub
 
 
 Private Sub txtcode_Change()
-lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(TxtCode.Text)
+lblselarr.Caption = "Arrester Coding:   " + cmbarr1.Text + "-" + txtUr1.Text + "-" + UCase(txtcode.Text)
 lbltool2.Caption = "New Serial Number: #########" + " To: #########"
 End Sub
 
