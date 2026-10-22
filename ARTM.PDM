@@ -1,0 +1,392 @@
+[Root]
+Most Recent Package=ARTM Setup Package1402
+
+
+[Package|ARTM Setup Package 98|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup
+
+[Package|ARTM Setup Package 98|Configure DAO ISAMs]
+Applicable=Yes
+Jet 2.x=Yes
+
+[Package|ARTM Setup Package 98|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|ARTM Setup Package 98|Files Found]
+
+[Package|ARTM Setup Package 98|Files Released]
+ads839.dll=
+ads841.dll=
+
+[Package|ARTM Setup Package 98|Missing Dependency Information]
+C:\Windows\System32\Fardate.ocx=
+C:\Program Files\Common Files\System\ado\msado25.tlb=
+C:\Windows\System32\Adsapi32.dll=
+
+[Package|ARTM Setup Package 98|Out-of-Date Dependency Information]
+C:\Windows\System32\tabctl32.ocx=
+C:\Windows\System32\comctl32.ocx=
+C:\Windows\System32\comdlg32.ocx=
+C:\Windows\System32\MSSTDFMT.DLL=
+C:\Windows\System32\mshflxgd.ocx=
+C:\Windows\System32\msflxgrd.ocx=
+
+[Package|ARTM Setup Package 98|Files Added]
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.jpg=
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.png=
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP logo.bmp=
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP1.bmp=
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP2.bmp=
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon.ICO=
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon1.ico=
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\Hvadres.mdb=
+
+[Package|ARTM Setup Package 98|Files Removed]
+
+[Package|ARTM Setup Package 98|Files In Project]
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM App.exe=Yes
+C:\Windows\System32\msvbvm60.dll=Yes
+C:\Windows\System32\oleaut32.dll=Yes
+C:\Windows\System32\olepro32.dll=Yes
+C:\Windows\System32\asycfilt.dll=Yes
+C:\Windows\System32\stdole2.tlb=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Windows\System32\Adsapi32.dll=Yes
+C:\Windows\System32\msflxgrd.ocx=Yes
+C:\Windows\System32\mshflxgd.ocx=Yes
+C:\Windows\System32\MSSTDFMT.DLL=Yes
+C:\Windows\System32\comdlg32.ocx=Yes
+C:\Program Files\Common Files\microsoft shared\DAO\DAO350.DLL=Yes
+C:\Windows\System32\MSJET35.DLL=Yes
+C:\Windows\System32\MSJTER35.DLL=Yes
+C:\Windows\System32\MSJINT35.DLL=Yes
+C:\Windows\System32\vbajet32.dll=Yes
+C:\Windows\System32\expsrv.dll=Yes
+C:\Windows\System32\MSRD2X35.DLL=Yes
+C:\Windows\System32\MSREPL35.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\Windows\System32\VB5DB.DLL=Yes
+C:\Windows\System32\MSADODC.OCX=Yes
+C:\Windows\System32\MSDATGRD.OCX=Yes
+C:\Program Files\Common Files\System\ado\msado25.tlb=Yes
+C:\Windows\System32\MSBIND.DLL=Yes
+C:\Windows\System32\comctl32.ocx=Yes
+C:\Windows\System32\tabctl32.ocx=Yes
+C:\Windows\System32\Fardate.ocx=Yes
+C:\Windows\System32\MSRDO20.DLL=Yes
+C:\Windows\System32\RDOCURS.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Windows\System32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.jpg=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.png=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP logo.bmp=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP1.bmp=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP2.bmp=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon.ICO=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon1.ico=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\Hvadres.mdb=Yes
+
+[Package|ARTM Setup Package 98|Configure Registry Files]
+Applicable=No
+
+[Package|ARTM Setup Package 98|Configure Remote Servers]
+Applicable=No
+
+[Package|ARTM Setup Package 98|Install Locations]
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM App.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Windows\System32\oleaut32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\olepro32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\asycfilt.dll=$(WinSysPathSysFile)
+C:\Windows\System32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\Adsapi32.dll=$(WinSysPath)
+C:\Windows\System32\msflxgrd.ocx=$(WinSysPath)
+C:\Windows\System32\mshflxgd.ocx=$(WinSysPath)
+C:\Windows\System32\MSSTDFMT.DLL=$(WinSysPath)
+C:\Windows\System32\comdlg32.ocx=$(WinSysPath)
+C:\Program Files\Common Files\microsoft shared\DAO\DAO350.DLL=$(MSDAOPath)
+C:\Windows\System32\MSJET35.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\vbajet32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\expsrv.dll=$(WinSysPathSysFile)
+C:\Windows\System32\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSREPL35.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\VB5DB.DLL=$(WinSysPath)
+C:\Windows\System32\MSADODC.OCX=$(WinSysPath)
+C:\Windows\System32\MSDATGRD.OCX=$(WinSysPath)
+C:\Program Files\Common Files\System\ado\msado25.tlb=$(WinSysPath)
+C:\Windows\System32\MSBIND.DLL=$(WinSysPath)
+C:\Windows\System32\comctl32.ocx=$(WinSysPath)
+C:\Windows\System32\tabctl32.ocx=$(WinSysPath)
+C:\Windows\System32\Fardate.ocx=$(WinSysPath)
+C:\Windows\System32\MSRDO20.DLL=$(WinSysPath)
+C:\Windows\System32\RDOCURS.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Windows\System32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.jpg=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.png=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP logo.bmp=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP1.bmp=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP2.bmp=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon.ICO=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon1.ico=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\Hvadres.mdb=$(AppPath)
+
+[Package|ARTM Setup Package 98|Configure Shared Files]
+Applicable=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM App.exe=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.jpg=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.png=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP logo.bmp=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP1.bmp=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP2.bmp=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon.ICO=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon1.ico=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\Hvadres.mdb=No
+
+[Package|ARTM Setup Package 98|Distribution]
+Type=single
+Size=
+Title=ARTM Setup    Ver. 98.03.25 
+
+[Package|ARTM Setup Package 98|IconGroups]
+Group0=ARTM
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|ARTM Setup Package 98|ARTM]
+Icon1="ARTM App.exe"
+Title1=ARTM
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|ARTM Setup Package 98|Package]
+PackageFolder=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup
+ProjectFolder=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron
+ServerSideCab=
+File1=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup\setup.exe
+File2=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup\Setup.Lst
+File3=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup\ARTM App.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|ARTM Setup Package1402|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup
+
+[Package|ARTM Setup Package1402|Configure DAO ISAMs]
+Applicable=Yes
+Jet 2.x=Yes
+
+[Package|ARTM Setup Package1402|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|ARTM Setup Package1402|Files Found]
+
+[Package|ARTM Setup Package1402|Files Released]
+ads839.dll=
+ads841.dll=
+
+[Package|ARTM Setup Package1402|Missing Dependency Information]
+C:\Windows\System32\Fardate.ocx=
+C:\Program Files\Common Files\System\ado\msado25.tlb=
+C:\Windows\System32\Adsapi32.dll=
+C:\Program Files (x86)\Common Files\System\ado\msado25.tlb=
+C:\Windows\SysWOW64\MSSTDFMT.DLL=
+
+[Package|ARTM Setup Package1402|Out-of-Date Dependency Information]
+C:\Windows\System32\tabctl32.ocx=
+C:\Windows\System32\comctl32.ocx=
+C:\Windows\System32\comdlg32.ocx=
+C:\Windows\System32\MSSTDFMT.DLL=
+C:\Windows\System32\mshflxgd.ocx=
+C:\Windows\System32\msflxgrd.ocx=
+C:\Windows\SysWOW64\tabctl32.ocx=
+C:\Windows\SysWOW64\comctl32.ocx=
+C:\Windows\SysWOW64\comdlg32.ocx=
+C:\Windows\SysWOW64\mshflxgd.ocx=
+C:\Windows\SysWOW64\msflxgrd.ocx=
+
+[Package|ARTM Setup Package1402|Files Added]
+e:\artm sourse _hv test\new version 1398\artm_hvt_synchron\artm_qc logo.jpg=
+e:\artm sourse _hv test\new version 1398\artm_hvt_synchron\artm_qc logo.png=
+e:\artm sourse _hv test\new version 1398\artm_hvt_synchron\etp logo.bmp=
+e:\artm sourse _hv test\new version 1398\artm_hvt_synchron\etp1.bmp=
+e:\artm sourse _hv test\new version 1398\artm_hvt_synchron\etp2.bmp=
+e:\artm sourse _hv test\new version 1398\artm_hvt_synchron\etpicon.ico=
+e:\artm sourse _hv test\new version 1398\artm_hvt_synchron\etpicon1.ico=
+e:\artm sourse _hv test\new version 1398\artm_hvt_synchron\hvadres.mdb=
+
+[Package|ARTM Setup Package1402|Files Removed]
+
+[Package|ARTM Setup Package1402|Files In Project]
+C:\Windows\System32\msvbvm60.dll=Yes
+C:\Windows\System32\oleaut32.dll=Yes
+C:\Windows\System32\olepro32.dll=Yes
+C:\Windows\System32\asycfilt.dll=Yes
+C:\Windows\System32\stdole2.tlb=Yes
+C:\Windows\System32\Adsapi32.dll=Yes
+C:\Windows\System32\MSJET35.DLL=Yes
+C:\Windows\System32\MSJTER35.DLL=Yes
+C:\Windows\System32\MSJINT35.DLL=Yes
+C:\Windows\System32\vbajet32.dll=Yes
+C:\Windows\System32\expsrv.dll=Yes
+C:\Windows\System32\MSRD2X35.DLL=Yes
+C:\Windows\System32\MSREPL35.DLL=Yes
+C:\Windows\System32\VB5DB.DLL=Yes
+C:\Windows\System32\MSRDO20.DLL=Yes
+C:\Windows\System32\RDOCURS.DLL=Yes
+C:\Windows\System32\VB6STKIT.DLL=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.jpg=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.png=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP logo.bmp=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP1.bmp=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP2.bmp=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon.ICO=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon1.ico=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\Hvadres.mdb=Yes
+E:\ARTM Sourse _HV TEST\Version 1401_Combined with ASTM\ARTM_HVT_Synchron\ARTM App.exe=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\Windows\SysWOW64\msflxgrd.ocx=Yes
+C:\Windows\SysWOW64\mshflxgd.ocx=Yes
+C:\Windows\SysWOW64\MSSTDFMT.DLL=Yes
+C:\Windows\SysWOW64\comdlg32.ocx=Yes
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO350.DLL=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+C:\Windows\SysWOW64\MSADODC.OCX=Yes
+C:\Windows\SysWOW64\MSDATGRD.OCX=Yes
+C:\Program Files (x86)\Common Files\System\ado\msado25.tlb=Yes
+C:\Windows\SysWOW64\MSBIND.DLL=Yes
+C:\Windows\SysWOW64\comctl32.ocx=Yes
+C:\Windows\SysWOW64\tabctl32.ocx=Yes
+C:\Windows\SysWOW64\MSCOMCT2.OCX=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|ARTM Setup Package1402|Configure Registry Files]
+Applicable=No
+
+[Package|ARTM Setup Package1402|Configure Remote Servers]
+Applicable=No
+
+[Package|ARTM Setup Package1402|Install Locations]
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM App.exe=$(AppPath)
+C:\Windows\System32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Windows\System32\oleaut32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\olepro32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\asycfilt.dll=$(WinSysPathSysFile)
+C:\Windows\System32\stdole2.tlb=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\Adsapi32.dll=$(WinSysPath)
+C:\Windows\System32\msflxgrd.ocx=$(WinSysPath)
+C:\Windows\System32\mshflxgd.ocx=$(WinSysPath)
+C:\Windows\System32\MSSTDFMT.DLL=$(WinSysPath)
+C:\Windows\System32\comdlg32.ocx=$(WinSysPath)
+C:\Program Files\Common Files\microsoft shared\DAO\DAO350.DLL=$(MSDAOPath)
+C:\Windows\System32\MSJET35.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSJTER35.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSJINT35.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\vbajet32.dll=$(WinSysPathSysFile)
+C:\Windows\System32\expsrv.dll=$(WinSysPathSysFile)
+C:\Windows\System32\MSRD2X35.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\MSREPL35.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\Windows\System32\VB5DB.DLL=$(WinSysPath)
+C:\Windows\System32\MSADODC.OCX=$(WinSysPath)
+C:\Windows\System32\MSDATGRD.OCX=$(WinSysPath)
+C:\Program Files\Common Files\System\ado\msado25.tlb=$(WinSysPath)
+C:\Windows\System32\MSBIND.DLL=$(WinSysPath)
+C:\Windows\System32\comctl32.ocx=$(WinSysPath)
+C:\Windows\System32\tabctl32.ocx=$(WinSysPath)
+C:\Windows\System32\Fardate.ocx=$(WinSysPath)
+C:\Windows\System32\MSRDO20.DLL=$(WinSysPath)
+C:\Windows\System32\RDOCURS.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Windows\System32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.jpg=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.png=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP logo.bmp=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP1.bmp=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP2.bmp=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon.ICO=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon1.ico=$(AppPath)
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\Hvadres.mdb=$(AppPath)
+E:\ARTM Sourse _HV TEST\Version 1401_Combined with ASTM\ARTM_HVT_Synchron\ARTM App.exe=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\Windows\SysWOW64\msflxgrd.ocx=$(WinSysPath)
+C:\Windows\SysWOW64\mshflxgd.ocx=$(WinSysPath)
+C:\Windows\SysWOW64\MSSTDFMT.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\comdlg32.ocx=$(WinSysPath)
+C:\Program Files (x86)\Common Files\microsoft shared\DAO\DAO350.DLL=$(MSDAOPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+C:\Windows\SysWOW64\MSADODC.OCX=$(WinSysPath)
+C:\Windows\SysWOW64\MSDATGRD.OCX=$(WinSysPath)
+C:\Program Files (x86)\Common Files\System\ado\msado25.tlb=$(WinSysPath)
+C:\Windows\SysWOW64\MSBIND.DLL=$(WinSysPath)
+C:\Windows\SysWOW64\comctl32.ocx=$(WinSysPath)
+C:\Windows\SysWOW64\tabctl32.ocx=$(WinSysPath)
+C:\Windows\SysWOW64\MSCOMCT2.OCX=$(WinSysPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|ARTM Setup Package1402|Configure Shared Files]
+Applicable=Yes
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM App.exe=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.jpg=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM_QC Logo.png=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP logo.bmp=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP1.bmp=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETP2.bmp=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon.ICO=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ETPicon1.ico=No
+E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\Hvadres.mdb=No
+E:\ARTM Sourse _HV TEST\Version 1401_Combined with ASTM\ARTM_HVT_Synchron\ARTM App.exe=No
+C:\Program Files (x86)\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+
+[Package|ARTM Setup Package1402|Distribution]
+Type=single
+Size=
+Title=ARTM Setup    Ver.1402.03.10
+
+[Package|ARTM Setup Package1402|IconGroups]
+Group0=ARTM
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|ARTM Setup Package1402|ARTM]
+Icon1="ARTM App.exe"
+Title1=ARTM
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|ARTM Setup Package1402|Package]
+PackageFolder=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup
+ProjectFolder=E:\ARTM Sourse _HV TEST\Version 1401_Combined with ASTM\ARTM_HVT_Synchron
+ServerSideCab=
+File1=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup\setup.exe
+File2=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup\Setup.Lst
+File3=E:\ARTM Sourse _HV TEST\New Version 1398\ARTM_HVT_Synchron\ARTM Setup\ARTM App.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

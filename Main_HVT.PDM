@@ -1,0 +1,528 @@
+[Root]
+Most Recent Package=HV TEST V.4.1
+
+
+[Package|HV TEST V.3.1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=e:\javadi_main source\HVT_source_88_1_26\HVT_Package
+
+[Package|HV TEST V.3.1|Configure DAO ISAMs]
+Applicable=Yes
+Jet 2.x=No
+
+[Package|HV TEST V.3.1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|HV TEST V.3.1|Files Found]
+Ads839.dll=D:\WINDOWS\system32\Ads839.dll
+
+[Package|HV TEST V.3.1|Files Released]
+ads841.dll=
+
+[Package|HV TEST V.3.1|Missing Dependency Information]
+D:\WINDOWS\system32\Ads839.dll=
+D:\Program Files\Common Files\System\ado\msado20.tlb=
+D:\WINDOWS\system32\MSSTDFMT.DLL=
+D:\WINDOWS\system32\Adsapi32.dll=
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=
+
+[Package|HV TEST V.3.1|Out-of-Date Dependency Information]
+D:\WINDOWS\system32\MSCOMCTL.OCX=
+D:\WINDOWS\system32\comdlg32.ocx=
+
+[Package|HV TEST V.3.1|Files Added]
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=
+
+[Package|HV TEST V.3.1|Files Removed]
+
+[Package|HV TEST V.3.1|Files In Project]
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Main_HVT.exe=Yes
+D:\WINDOWS\system32\msvbvm60.dll=Yes
+D:\WINDOWS\system32\oleaut32.dll=Yes
+D:\WINDOWS\system32\olepro32.dll=Yes
+D:\WINDOWS\system32\asycfilt.dll=Yes
+D:\WINDOWS\system32\stdole2.tlb=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+D:\WINDOWS\system32\Adsapi32.dll=Yes
+D:\WINDOWS\system32\Ads839.dll=Yes
+D:\WINDOWS\system32\MSFLXGRD.OCX=Yes
+D:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+D:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+D:\WINDOWS\system32\comdlg32.ocx=Yes
+D:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+D:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL=Yes
+D:\WINDOWS\system32\MSJET35.DLL=Yes
+D:\WINDOWS\system32\MSJTER35.DLL=Yes
+D:\WINDOWS\system32\MSJINT35.DLL=Yes
+D:\WINDOWS\system32\vbajet32.dll=Yes
+D:\WINDOWS\system32\expsrv.dll=Yes
+D:\WINDOWS\system32\MSRD2X35.DLL=Yes
+D:\WINDOWS\system32\MSREPL35.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+D:\WINDOWS\system32\VB5DB.DLL=Yes
+D:\WINDOWS\system32\MSADODC.OCX=Yes
+D:\WINDOWS\system32\MSDATGRD.OCX=Yes
+D:\Program Files\Common Files\System\ado\msado20.tlb=Yes
+D:\WINDOWS\system32\MSBIND.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+D:\WINDOWS\system32\VB6STKIT.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=Yes
+
+[Package|HV TEST V.3.1|Configure Registry Files]
+Applicable=No
+
+[Package|HV TEST V.3.1|Configure Remote Servers]
+Applicable=No
+
+[Package|HV TEST V.3.1|Install Locations]
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Main_HVT.exe=$(AppPath)
+D:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\Adsapi32.dll=$(WinSysPath)
+D:\WINDOWS\system32\Ads839.dll=$(WinSysPath)
+D:\WINDOWS\system32\MSFLXGRD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+D:\WINDOWS\system32\comdlg32.ocx=$(WinSysPath)
+D:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+D:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL=$(MSDAOPath)
+D:\WINDOWS\system32\MSJET35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSJTER35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSJINT35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\vbajet32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\expsrv.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSRD2X35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSREPL35.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\VB5DB.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+D:\Program Files\Common Files\System\ado\msado20.tlb=$(WinSysPath)
+D:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+D:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=$(AppPath)
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=$(AppPath)
+
+[Package|HV TEST V.3.1|Configure Shared Files]
+Applicable=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Main_HVT.exe=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=Yes
+
+[Package|HV TEST V.3.1|Distribution]
+Type=single
+Size=
+Title=HV_Test
+
+[Package|HV TEST V.3.1|IconGroups]
+Group0=HV_Test
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|HV TEST V.3.1|HV_Test]
+Icon1=Main_HVT.exe
+Title1=HV_Test
+StartIn1=$(AppPath)
+Key1=Icon1
+Icon2=Calibration_HVT.exe
+Title2=Calibration
+StartIn2=$(AppPath)
+Key2=Icon4
+Icon3=Setting_HVT.exe
+Title3=Setting
+StartIn3=$(AppPath)
+Key3=Icon5
+
+[Package|HV TEST V.3.1|Package]
+PackageFolder=e:\javadi_main source\HVT_source_88_1_26\HVT_Package
+ProjectFolder=E:\javadi_main source\HVT_source_88_1_26\HVT_source
+ServerSideCab=
+File1=e:\javadi_main source\HVT_source_88_1_26\HVT_Package\setup.exe
+File2=e:\javadi_main source\HVT_source_88_1_26\HVT_Package\Setup.Lst
+File3=e:\javadi_main source\HVT_source_88_1_26\HVT_Package\Main_HVT.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+
+[Package|HV TEST V.3.2|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package
+
+[Package|HV TEST V.3.2|Configure DAO ISAMs]
+Applicable=Yes
+Jet 2.x=Yes
+
+[Package|HV TEST V.3.2|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|HV TEST V.3.2|Files Found]
+Ads839.dll=D:\WINDOWS\system32\Ads839.dll
+Calibration_HVT.exe=E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe
+
+[Package|HV TEST V.3.2|Files Released]
+ads841.dll=
+
+[Package|HV TEST V.3.2|Missing Dependency Information]
+D:\WINDOWS\system32\Ads839.dll=
+D:\Program Files\Common Files\System\ado\msado20.tlb=
+D:\WINDOWS\system32\MSSTDFMT.DLL=
+D:\WINDOWS\system32\Adsapi32.dll=
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=
+
+[Package|HV TEST V.3.2|Out-of-Date Dependency Information]
+D:\WINDOWS\system32\MSCOMCTL.OCX=
+D:\WINDOWS\system32\comdlg32.ocx=
+D:\WINDOWS\system32\MSRDO20.DLL=
+
+[Package|HV TEST V.3.2|Files Added]
+e:\javadi_main source_1388\hvt_source_88_1_26\hvt_source\calibration_hvt.exe=
+e:\javadi_main source_1388\hvt_source_88_1_26\hvt_source\setting_hvt.exe=
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Pars2.bmp=
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Parsicon.ICO=
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Hvadres.mdb=
+
+[Package|HV TEST V.3.2|Files Removed]
+
+[Package|HV TEST V.3.2|Files In Project]
+D:\WINDOWS\system32\msvbvm60.dll=Yes
+D:\WINDOWS\system32\oleaut32.dll=Yes
+D:\WINDOWS\system32\olepro32.dll=Yes
+D:\WINDOWS\system32\asycfilt.dll=Yes
+D:\WINDOWS\system32\stdole2.tlb=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+D:\WINDOWS\system32\Adsapi32.dll=Yes
+D:\WINDOWS\system32\Ads839.dll=Yes
+D:\WINDOWS\system32\MSFLXGRD.OCX=Yes
+D:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+D:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+D:\WINDOWS\system32\comdlg32.ocx=Yes
+D:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+D:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL=Yes
+D:\WINDOWS\system32\MSJET35.DLL=Yes
+D:\WINDOWS\system32\MSJTER35.DLL=Yes
+D:\WINDOWS\system32\MSJINT35.DLL=Yes
+D:\WINDOWS\system32\vbajet32.dll=Yes
+D:\WINDOWS\system32\expsrv.dll=Yes
+D:\WINDOWS\system32\MSRD2X35.DLL=Yes
+D:\WINDOWS\system32\MSREPL35.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+D:\WINDOWS\system32\VB5DB.DLL=Yes
+D:\WINDOWS\system32\MSADODC.OCX=Yes
+D:\WINDOWS\system32\MSDATGRD.OCX=Yes
+D:\Program Files\Common Files\System\ado\msado20.tlb=Yes
+D:\WINDOWS\system32\MSBIND.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+D:\WINDOWS\system32\VB6STKIT.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Main_HVT.exe=Yes
+D:\WINDOWS\system32\MSRDO20.DLL=Yes
+D:\WINDOWS\system32\RDOCURS.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Pars2.bmp=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Parsicon.ICO=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Hvadres.mdb=Yes
+
+[Package|HV TEST V.3.2|Configure Registry Files]
+Applicable=No
+
+[Package|HV TEST V.3.2|Configure Remote Servers]
+Applicable=No
+
+[Package|HV TEST V.3.2|Install Locations]
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Main_HVT.exe=$(AppPath)
+D:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\Adsapi32.dll=$(WinSysPath)
+D:\WINDOWS\system32\Ads839.dll=$(WinSysPath)
+D:\WINDOWS\system32\MSFLXGRD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+D:\WINDOWS\system32\comdlg32.ocx=$(WinSysPath)
+D:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+D:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL=$(MSDAOPath)
+D:\WINDOWS\system32\MSJET35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSJTER35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSJINT35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\vbajet32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\expsrv.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSRD2X35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSREPL35.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\VB5DB.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+D:\Program Files\Common Files\System\ado\msado20.tlb=$(WinSysPath)
+D:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+D:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=$(AppPath)
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Main_HVT.exe=$(AppPath)
+D:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+D:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Pars2.bmp=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Parsicon.ICO=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Hvadres.mdb=$(AppPath)
+
+[Package|HV TEST V.3.2|Configure Shared Files]
+Applicable=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Main_HVT.exe=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Main_HVT.exe=No
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Pars2.bmp=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Parsicon.ICO=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Hvadres.mdb=No
+
+[Package|HV TEST V.3.2|Distribution]
+Type=single
+Size=
+Title=HV_Test
+
+[Package|HV TEST V.3.2|IconGroups]
+Group0=HV_Test
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|HV TEST V.3.2|HV_Test]
+Icon1=Setting_HVT.exe
+Title1=Setting
+StartIn1=$(AppPath)
+Key1=Icon5
+Icon2=Calibration_HVT.exe
+Title2=Calibration
+StartIn2=$(AppPath)
+Key2=Icon4
+Icon3=Main_HVT.exe
+Title3=HV_Test
+StartIn3=$(AppPath)
+Key3=Icon1
+
+[Package|HV TEST V.3.2|Package]
+PackageFolder=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package
+ProjectFolder=E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source
+ServerSideCab=
+File1=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package\setup.exe
+File2=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package\Setup.Lst
+File3=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package\Main_HVT.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|HV TEST V.4.1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package
+
+[Package|HV TEST V.4.1|Configure DAO ISAMs]
+Applicable=Yes
+Jet 2.x=Yes
+
+[Package|HV TEST V.4.1|Configure DAO ODBC]
+JetWorkspace=Yes
+ODBCDirect=Yes
+
+[Package|HV TEST V.4.1|Files Found]
+Ads839.dll=D:\WINDOWS\system32\Ads839.dll
+Calibration_HVT.exe=E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe
+
+[Package|HV TEST V.4.1|Files Released]
+ads841.dll=
+
+[Package|HV TEST V.4.1|Missing Dependency Information]
+D:\WINDOWS\system32\Ads839.dll=
+D:\Program Files\Common Files\System\ado\msado20.tlb=
+D:\WINDOWS\system32\MSSTDFMT.DLL=
+D:\WINDOWS\system32\Adsapi32.dll=
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=
+
+[Package|HV TEST V.4.1|Out-of-Date Dependency Information]
+D:\WINDOWS\system32\MSCOMCTL.OCX=
+D:\WINDOWS\system32\comdlg32.ocx=
+D:\WINDOWS\system32\MSRDO20.DLL=
+
+[Package|HV TEST V.4.1|Files Added]
+e:\javadi_main source_1388\hvt_source_88_1_26\hvt_source\calibration_hvt.exe=
+e:\javadi_main source_1388\hvt_source_88_1_26\hvt_source\setting_hvt.exe=
+e:\javadi_main source_1388\hvt_source_88_1_26\hvt_source\pars2.bmp=
+e:\javadi_main source_1388\hvt_source_88_1_26\hvt_source\parsicon.ico=
+e:\javadi_main source_1388\hvt_source_88_1_26\hvt_source\hvadres.mdb=
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\PARS1.BMP=
+
+[Package|HV TEST V.4.1|Files Removed]
+
+[Package|HV TEST V.4.1|Files In Project]
+D:\WINDOWS\system32\msvbvm60.dll=Yes
+D:\WINDOWS\system32\oleaut32.dll=Yes
+D:\WINDOWS\system32\olepro32.dll=Yes
+D:\WINDOWS\system32\asycfilt.dll=Yes
+D:\WINDOWS\system32\stdole2.tlb=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+D:\WINDOWS\system32\Adsapi32.dll=Yes
+D:\WINDOWS\system32\Ads839.dll=Yes
+D:\WINDOWS\system32\MSFLXGRD.OCX=Yes
+D:\WINDOWS\system32\MSHFLXGD.OCX=Yes
+D:\WINDOWS\system32\MSSTDFMT.DLL=Yes
+D:\WINDOWS\system32\comdlg32.ocx=Yes
+D:\WINDOWS\system32\MSCOMCTL.OCX=Yes
+D:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL=Yes
+D:\WINDOWS\system32\MSJET35.DLL=Yes
+D:\WINDOWS\system32\MSJTER35.DLL=Yes
+D:\WINDOWS\system32\MSJINT35.DLL=Yes
+D:\WINDOWS\system32\vbajet32.dll=Yes
+D:\WINDOWS\system32\expsrv.dll=Yes
+D:\WINDOWS\system32\MSRD2X35.DLL=Yes
+D:\WINDOWS\system32\MSREPL35.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=Yes
+D:\WINDOWS\system32\VB5DB.DLL=Yes
+D:\WINDOWS\system32\MSADODC.OCX=Yes
+D:\WINDOWS\system32\MSDATGRD.OCX=Yes
+D:\Program Files\Common Files\System\ado\msado20.tlb=Yes
+D:\WINDOWS\system32\MSBIND.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+D:\WINDOWS\system32\VB6STKIT.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Main_HVT.exe=Yes
+D:\WINDOWS\system32\MSRDO20.DLL=Yes
+D:\WINDOWS\system32\RDOCURS.DLL=Yes
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Pars2.bmp=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Parsicon.ICO=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Hvadres.mdb=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\PARS1.BMP=Yes
+
+[Package|HV TEST V.4.1|Configure Registry Files]
+Applicable=No
+
+[Package|HV TEST V.4.1|Configure Remote Servers]
+Applicable=No
+
+[Package|HV TEST V.4.1|Install Locations]
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Main_HVT.exe=$(AppPath)
+D:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\oleaut32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\olepro32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\asycfilt.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\stdole2.tlb=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\Adsapi32.dll=$(WinSysPath)
+D:\WINDOWS\system32\Ads839.dll=$(WinSysPath)
+D:\WINDOWS\system32\MSFLXGRD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSHFLXGD.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSSTDFMT.DLL=$(WinSysPath)
+D:\WINDOWS\system32\comdlg32.ocx=$(WinSysPath)
+D:\WINDOWS\system32\MSCOMCTL.OCX=$(WinSysPath)
+D:\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL=$(MSDAOPath)
+D:\WINDOWS\system32\MSJET35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSJTER35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSJINT35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\vbajet32.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\expsrv.dll=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSRD2X35.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\MSREPL35.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=$(WinSysPathSysFile)
+D:\WINDOWS\system32\VB5DB.DLL=$(WinSysPath)
+D:\WINDOWS\system32\MSADODC.OCX=$(WinSysPath)
+D:\WINDOWS\system32\MSDATGRD.OCX=$(WinSysPath)
+D:\Program Files\Common Files\System\ado\msado20.tlb=$(WinSysPath)
+D:\WINDOWS\system32\MSBIND.DLL=$(WinSysPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+D:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=$(AppPath)
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Main_HVT.exe=$(AppPath)
+D:\WINDOWS\system32\MSRDO20.DLL=$(WinSysPath)
+D:\WINDOWS\system32\RDOCURS.DLL=$(WinSysPath)
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Pars2.bmp=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Parsicon.ICO=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Hvadres.mdb=$(AppPath)
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\PARS1.BMP=$(AppPath)
+
+[Package|HV TEST V.4.1|Configure Shared Files]
+Applicable=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Main_HVT.exe=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=Yes
+E:\javadi_main source\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=Yes
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Main_HVT.exe=No
+D:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Calibration_HVT.exe=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Setting_HVT.exe=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Pars2.bmp=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Parsicon.ICO=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\Hvadres.mdb=No
+E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source\PARS1.BMP=No
+
+[Package|HV TEST V.4.1|Distribution]
+Type=single
+Size=
+Title=HV_Test
+
+[Package|HV TEST V.4.1|Package]
+PackageFolder=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package
+ProjectFolder=E:\javadi_main source_1388\HVT_source_88_1_26\HVT_source
+ServerSideCab=
+File1=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package\setup.exe
+File2=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package\Setup.Lst
+File3=e:\javadi_main source_1388\HVT_source_88_1_26\HVT_Package\Main_HVT.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|HV TEST V.4.1|IconGroups]
+Group0=HV_Test
+PrivateGroup0=True
+Parent0=$(Programs)
+
+[Package|HV TEST V.4.1|HV_Test]
+Icon1=Main_HVT.exe
+Title1=HV_Test
+StartIn1=$(AppPath)
+Key1=Icon1
+Icon2=Calibration_HVT.exe
+Title2=Calibration
+StartIn2=$(AppPath)
+Key2=Icon4
+Icon3=Setting_HVT.exe
+Title3=Setting
+StartIn3=$(AppPath)
+Key3=Icon5
